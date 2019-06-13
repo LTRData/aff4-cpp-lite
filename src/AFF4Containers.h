@@ -42,7 +42,7 @@ namespace container {
  * @param filename The file
  * @return TRUE if the filename suggests a AFF4 container.
  */
-LIBAFF4_API bool isAFF4Container(std::string filename) noexcept;
+LIBAFF4_API bool isAFF4Container(std::string filename) NOEXCEPT;
 /**
  * Get the resource ID string from the AFF4 container.
  * <p>
@@ -52,7 +52,7 @@ LIBAFF4_API bool isAFF4Container(std::string filename) noexcept;
  * @param filename The file to open for the resource string.
  * @return The found resource ID, or empty string if not found.
  */
-LIBAFF4_API std::string getResourceID(const std::string& filename) noexcept;
+LIBAFF4_API std::string getResourceID(const std::string& filename) NOEXCEPT;
 /**
  * Open the given file as a AFF4 Container.
  * <p>
@@ -62,7 +62,7 @@ LIBAFF4_API std::string getResourceID(const std::string& filename) noexcept;
  * @param filename The file to open
  * @return A AFF4 container instance, or NULL if failed.
  */
-LIBAFF4_API std::shared_ptr<IAFF4Container> openAFF4Container(const std::string& filename) noexcept;
+LIBAFF4_API std::shared_ptr<IAFF4Container> openAFF4Container(const std::string& filename) NOEXCEPT;
 
 /**
  * Open the given file as a AFF4 Container
@@ -72,7 +72,7 @@ LIBAFF4_API std::shared_ptr<IAFF4Container> openAFF4Container(const std::string&
  *            own container.
  * @return A AFF4 container instance
  */
-LIBAFF4_API std::shared_ptr<IAFF4Container> openAFF4Container(const std::string& filename, IAFF4Resolver* resolver) noexcept;
+LIBAFF4_API std::shared_ptr<IAFF4Container> openAFF4Container(const std::string& filename, IAFF4Resolver* resolver) NOEXCEPT;
 
 /**
  * Create a basic Lightweight Resolver.
@@ -80,7 +80,7 @@ LIBAFF4_API std::shared_ptr<IAFF4Container> openAFF4Container(const std::string&
  * @param scanSubFolders TRUE to scan the folder and all sub folders for images.
  * @return A lightweight resolver, or NULL if unable to construct. (eg, bad path).
  */
-LIBAFF4_API aff4::IAFF4Resolver* createResolver(std::string path, bool scanSubFolders = true) noexcept;
+LIBAFF4_API aff4::IAFF4Resolver* createResolver(std::string path, bool scanSubFolders = true) NOEXCEPT;
 
 } /* namespace container */
 } /* namespace aff4 */

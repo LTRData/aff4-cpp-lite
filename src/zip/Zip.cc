@@ -109,7 +109,7 @@ Zip::~Zip() {
 	close();
 }
 
-void Zip::close() noexcept {
+void Zip::close() NOEXCEPT {
 	if (!closed.exchange(true)) {
 		entries.clear();
 #ifndef _WIN32
@@ -126,19 +126,19 @@ void Zip::close() noexcept {
 	}
 }
 
-std::string Zip::getFilename() const noexcept {
+std::string Zip::getFilename() const NOEXCEPT {
 	return filename;
 }
 
-std::string Zip::getZipComment() const noexcept {
+std::string Zip::getZipComment() const NOEXCEPT {
 	return comment;
 }
 
-std::vector<std::shared_ptr<ZipEntry>> Zip::getEntries() const noexcept {
+std::vector<std::shared_ptr<ZipEntry>> Zip::getEntries() const NOEXCEPT {
 	return entries;
 }
 
-bool Zip::hasEntry(const std::string& segmentName) const noexcept {
+bool Zip::hasEntry(const std::string& segmentName) const NOEXCEPT {
 #if DEBUG
 	fprintf( aff4::getDebugOutput(), "%s[%d] : Has Entry: %s \n", __FILE__, __LINE__, segmentName.c_str());
 #endif
@@ -151,7 +151,7 @@ bool Zip::hasEntry(const std::string& segmentName) const noexcept {
 	return false;
 }
 
-std::shared_ptr<IAFF4Stream> Zip::getStream(const std::string& segmentName) noexcept {
+std::shared_ptr<IAFF4Stream> Zip::getStream(const std::string& segmentName) NOEXCEPT {
 #if DEBUG
 	fprintf( aff4::getDebugOutput(), "%s[%d] : Zip Open Segment: %s \n", __FILE__, __LINE__, segmentName.c_str());
 #endif
@@ -175,7 +175,7 @@ std::shared_ptr<IAFF4Stream> Zip::getStream(const std::string& segmentName) noex
 	return s;
 }
 
-void Zip::parseCD() noexcept {
+void Zip::parseCD() NOEXCEPT {
 	errno = EIO;
 	structs::EndCentralDirectory* endCD = nullptr;
 	/* Find the End of Central Directory Record - We read about 4k of
@@ -348,7 +348,7 @@ void Zip::parseCD() noexcept {
 	return;
 }
 
-int64_t Zip::fileRead(void *buf, uint64_t count, uint64_t offset) noexcept {
+int64_t Zip::fileRead(void *buf, uint64_t count, uint64_t offset) NOEXCEPT {
 	if ((count == 0) || (buf == nullptr)) {
 		return 0;
 	}

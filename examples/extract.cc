@@ -112,7 +112,7 @@ int main(int argc, char* argv[]) {
 				uint64_t length = stream->size();
 				uint64_t remaining = length;
 				uint64_t offset = 0;
-				uint64_t bufferSize = 1024 * 1024; // default 1MB buffer.
+				size_t bufferSize = 1024 * 1024; // default 1MB buffer.
 
 				/*
 				 * Allocate buffer to read to
@@ -138,10 +138,10 @@ int main(int argc, char* argv[]) {
 					/*
 					 * read and write buffer fulls at a time
 					 */
-					uint64_t sz = std::min(bufferSize, remaining);
+					uint64_t sz = std::min((uint64_t)bufferSize, remaining);
 					int64_t res = stream->read(buffer.get(), sz, offset);
 					if (res > 0) {
-						::fwrite(buffer.get(), res, 1, fileHandle);
+						::fwrite(buffer.get(), (size_t)res, 1, fileHandle);
 						remaining -= res;
 					} else {
 						// read failed?

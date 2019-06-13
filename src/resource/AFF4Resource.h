@@ -45,14 +45,14 @@ public:
 	 * An empty property map will be created.
 	 * @param resource The resource identifier
 	 */
-	explicit AFF4Resource(const std::string& resource) noexcept;
+	explicit AFF4Resource(const std::string& resource) NOEXCEPT;
 	/**
 	 * Create a new AFF4 Resource with the given predefined aff4 properties map
 	 * @param resource The resource identifier
 	 * @param properties The predefined properites map.
 	 */
 	explicit AFF4Resource(const std::string& resource,
-			std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>>& properties) noexcept;
+			std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>>& properties) NOEXCEPT;
 
 	virtual ~AFF4Resource() {
 	}
@@ -61,10 +61,10 @@ public:
 	 * From IAFF4Resource.
 	 */
 
-	std::string getResourceID() const noexcept;
-	aff4::Lexicon getBaseType() noexcept;
-	std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> getProperties() noexcept;
-	std::vector<aff4::rdf::RDFValue> getProperty(aff4::Lexicon resource) noexcept;
+	std::string getResourceID() const NOEXCEPT;
+	aff4::Lexicon getBaseType() NOEXCEPT;
+	std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> getProperties() NOEXCEPT;
+	std::vector<aff4::rdf::RDFValue> getProperty(aff4::Lexicon resource) NOEXCEPT;
 
 	/*
 	 * By default we just compare resource id.
@@ -83,13 +83,13 @@ protected:
 	 * @param property The property
 	 * @param values The collection of values.
 	 */
-	void addProperty(aff4::Lexicon property, std::vector<aff4::rdf::RDFValue>& values) noexcept;
+	void addProperty(aff4::Lexicon property, std::vector<aff4::rdf::RDFValue>& values) NOEXCEPT;
 	/**
 	 * Add the given property
 	 * @param property The property
 	 * @param value The value.
 	 */
-	void addProperty(aff4::Lexicon property, aff4::rdf::RDFValue value) noexcept;
+	void addProperty(aff4::Lexicon property, aff4::rdf::RDFValue value) NOEXCEPT;
 
 private:
 	/**

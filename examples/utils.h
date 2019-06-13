@@ -26,7 +26,10 @@
 
 #include <vector>
 #include <iostream>
+
+#ifndef NO_OPENSSL
 #include <openssl/sha.h>
+#endif
 
 /**
  * Does the string has the given starting string

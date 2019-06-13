@@ -28,7 +28,7 @@ static uint64_t CHUNK_CACHE_SIZE = AFF4_IMAGE_STREAM_CHUNK_CACHE_SIZE;
  */
 static FILE* debugOutput = stderr;
 
-std::string aff4::getVersionString() noexcept {
+std::string aff4::getVersionString() NOEXCEPT {
 	return std::string(PACKAGE_STRING);
 }
 

@@ -80,7 +80,7 @@ namespace aff4 {
  * Get the library version string
  * @return The library version string
  */
-LIBAFF4_API std::string getVersionString() noexcept;
+LIBAFF4_API std::string getVersionString() NOEXCEPT;
 
 /**
  * Set the file handle for writing debug output to.

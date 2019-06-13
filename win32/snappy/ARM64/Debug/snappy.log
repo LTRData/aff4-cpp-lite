@@ -1,0 +1,7 @@
+﻿  snappy-c.cc
+  snappy-sinksource.cc
+  snappy-stubs-internal.cc
+  snappy.cc
+  Generating Code...
+     Creating library C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Debug\snappy.lib and object C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Debug\snappy.exp
+  snappy.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Debug\snappy.dll

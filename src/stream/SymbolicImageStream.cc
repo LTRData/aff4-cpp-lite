@@ -48,7 +48,7 @@ SymbolicImageStream::SymbolicImageStream(const std::string& resource) :
 	initProperties();
 }
 
-void SymbolicImageStream::initProperties() noexcept {
+void SymbolicImageStream::initProperties() NOEXCEPT {
 	// Add default properties for this stream type.
 	addProperty(aff4::Lexicon::AFF4_TYPE, aff4::rdf::RDFValue(aff4::Lexicon::AFF4_IMAGESTREAM_TYPE));
 	addProperty(aff4::Lexicon::AFF4_SIZE, aff4::rdf::RDFValue((int64_t) LLONG_MAX));
@@ -58,24 +58,24 @@ SymbolicImageStream::~SymbolicImageStream() {
 	close();
 }
 
-uint8_t SymbolicImageStream::getSymbol() const noexcept {
+uint8_t SymbolicImageStream::getSymbol() const NOEXCEPT {
 	return symbol;
 }
 
-uint64_t SymbolicImageStream::size() noexcept {
+uint64_t SymbolicImageStream::size() NOEXCEPT {
 	return ULLONG_MAX;
 }
 
-void SymbolicImageStream::close() noexcept {
+void SymbolicImageStream::close() NOEXCEPT {
 	// NOP
 }
 
-int64_t SymbolicImageStream::read(void *buf, uint64_t count, uint64_t offset) noexcept {
+int64_t SymbolicImageStream::read(void *buf, uint64_t count, uint64_t offset) NOEXCEPT {
 	(void) offset;
 	if ((count == 0) || (buf == nullptr)) {
 		return 0;
 	}
-	::memset(buf, symbol, count);
+	::memset(buf, symbol, (size_t)count);
 	return count;
 }
 
@@ -83,19 +83,19 @@ int64_t SymbolicImageStream::read(void *buf, uint64_t count, uint64_t offset) no
  * AFF4 Resource
  */
 
-std::string SymbolicImageStream::getResourceID() const noexcept {
+std::string SymbolicImageStream::getResourceID() const NOEXCEPT {
 	return AFF4Resource::getResourceID();
 }
 
-aff4::Lexicon SymbolicImageStream::getBaseType() noexcept {
+aff4::Lexicon SymbolicImageStream::getBaseType() NOEXCEPT {
 	return aff4::Lexicon::AFF4_IMAGESTREAM_TYPE;
 }
 
-std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> SymbolicImageStream::getProperties() noexcept {
+std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> SymbolicImageStream::getProperties() NOEXCEPT {
 	return AFF4Resource::getProperties();
 }
 
-std::vector<aff4::rdf::RDFValue> SymbolicImageStream::getProperty(aff4::Lexicon resource) noexcept {
+std::vector<aff4::rdf::RDFValue> SymbolicImageStream::getProperty(aff4::Lexicon resource) NOEXCEPT {
 	return AFF4Resource::getProperty(resource);
 }
 

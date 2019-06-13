@@ -58,11 +58,11 @@ CompressionCodec::~CompressionCodec() {
 	// NOP
 }
 
-std::string CompressionCodec::getResourceID() const noexcept {
+std::string CompressionCodec::getResourceID() const NOEXCEPT {
 	return resource;
 }
 
-uint32_t CompressionCodec::getChunkSize() const noexcept {
+uint32_t CompressionCodec::getChunkSize() const NOEXCEPT {
 	return chunkSize;
 }
 

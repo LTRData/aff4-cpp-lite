@@ -68,7 +68,7 @@ AFF4Image::~AFF4Image() {
  * IAFF4Image.
  */
 
-std::shared_ptr<aff4::IAFF4Map> AFF4Image::getMap() noexcept {
+std::shared_ptr<aff4::IAFF4Map> AFF4Image::getMap() NOEXCEPT {
 	// Find our dependentStream instance.
 	std::vector<aff4::rdf::RDFValue> values = getProperty(aff4::Lexicon::AFF4_DATASTREAM);
 	if (!values.empty()) {
@@ -97,19 +97,19 @@ std::shared_ptr<aff4::IAFF4Map> AFF4Image::getMap() noexcept {
  * AFF4 Resource
  */
 
-std::string AFF4Image::getResourceID() const noexcept {
+std::string AFF4Image::getResourceID() const NOEXCEPT {
 	return AFF4Resource::getResourceID();
 }
 
-aff4::Lexicon AFF4Image::getBaseType() noexcept {
+aff4::Lexicon AFF4Image::getBaseType() NOEXCEPT {
 	return aff4::Lexicon::AFF4_IMAGE_TYPE;
 }
 
-std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> AFF4Image::getProperties() noexcept {
+std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> AFF4Image::getProperties() NOEXCEPT {
 	return AFF4Resource::getProperties();
 }
 
-std::vector<aff4::rdf::RDFValue> AFF4Image::getProperty(aff4::Lexicon resource) noexcept {
+std::vector<aff4::rdf::RDFValue> AFF4Image::getProperty(aff4::Lexicon resource) NOEXCEPT {
 	return AFF4Resource::getProperty(resource);
 }
 

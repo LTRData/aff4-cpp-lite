@@ -45,20 +45,20 @@ AFF4ZipContainer::~AFF4ZipContainer() {
 	parent->close();
 }
 
-void AFF4ZipContainer::setBasicProperties() noexcept {
+void AFF4ZipContainer::setBasicProperties() NOEXCEPT {
 	addProperty(aff4::Lexicon::AFF4_TYPE, aff4::rdf::RDFValue(aff4::Lexicon::AFF4_ZIP_TYPE));
 	addProperty(aff4::Lexicon::AFF4_STORED, aff4::rdf::RDFValue(parent->getFilename()));
 }
 
-void AFF4ZipContainer::loadVersionInformation() noexcept {
+void AFF4ZipContainer::loadVersionInformation() NOEXCEPT {
 	std::string version(AFF4_VERSIONDESCRIPTIONFILE);
 	std::shared_ptr<IAFF4Stream> stream = parent->getStream(version);
 	if (stream != nullptr) {
 		std::string versionTXT;
-		std::unique_ptr<char[]> buffer(new char[stream->size()]);
+		std::unique_ptr<char[]> buffer(new char[(size_t)stream->size()]);
 		int64_t res = stream->read(buffer.get(), stream->size(), 0);
 		if (res > 0) {
-			versionTXT = std::string(buffer.get(), res);
+			versionTXT = std::string(buffer.get(), (size_t)res);
 		}
 		// Decode the version.txt file. Examples expected contents is below.
 		// Note: the AFF4 Spec does not note that the major/minor values are int/float/string, so we store as String.
@@ -107,11 +107,11 @@ void AFF4ZipContainer::loadVersionInformation() noexcept {
 	}
 }
 
-void AFF4ZipContainer::loadModel() noexcept {
+void AFF4ZipContainer::loadModel() NOEXCEPT {
 	std::string version(AFF4_INFORMATIONTURTLE);
 	std::shared_ptr<IAFF4Stream> stream = parent->getStream(version);
 	if (stream != nullptr) {
-		std::unique_ptr<uint8_t[]> buffer(new uint8_t[stream->size()]);
+		std::unique_ptr<uint8_t[]> buffer(new uint8_t[(size_t)stream->size()]);
 		int64_t res = stream->read(buffer.get(), stream->size(), 0);
 		if (res > 0) {
 			// Attempt to construct a RDF model from the buffer.
@@ -121,17 +121,17 @@ void AFF4ZipContainer::loadModel() noexcept {
 	}
 }
 
-std::shared_ptr<aff4::rdf::Model> AFF4ZipContainer::getRDFModel() noexcept {
+std::shared_ptr<aff4::rdf::Model> AFF4ZipContainer::getRDFModel() NOEXCEPT {
 	return model;
 }
 
-std::shared_ptr<IAFF4Stream> AFF4ZipContainer::getSegment(const std::string& segmentName) noexcept {
+std::shared_ptr<IAFF4Stream> AFF4ZipContainer::getSegment(const std::string& segmentName) NOEXCEPT {
 	std::string res = sanitizeResource(segmentName);
 	std::shared_ptr<IAFF4Stream> stream = parent->getStream(res);
 	return stream;
 }
 
-std::shared_ptr<aff4::zip::ZipEntry> AFF4ZipContainer::getSegmentEntry(const std::string& segmentName) noexcept {
+std::shared_ptr<aff4::zip::ZipEntry> AFF4ZipContainer::getSegmentEntry(const std::string& segmentName) NOEXCEPT {
 	std::string res = sanitizeResource(segmentName);
 	std::vector<std::shared_ptr<aff4::zip::ZipEntry>> entries = parent->getEntries();
 	for (std::shared_ptr<aff4::zip::ZipEntry> e : entries) {
@@ -142,11 +142,11 @@ std::shared_ptr<aff4::zip::ZipEntry> AFF4ZipContainer::getSegmentEntry(const std
 	return nullptr;
 }
 
-int64_t AFF4ZipContainer::fileRead(void *buf, uint64_t count, uint64_t offset) noexcept {
+int64_t AFF4ZipContainer::fileRead(void *buf, uint64_t count, uint64_t offset) NOEXCEPT {
 	return parent->fileRead(buf, count, offset);
 }
 
-std::shared_ptr<IAFF4Stream> AFF4ZipContainer::getImageStream(const std::string& resource) noexcept {
+std::shared_ptr<IAFF4Stream> AFF4ZipContainer::getImageStream(const std::string& resource) NOEXCEPT {
 #if DEBUG
 	fprintf( aff4::getDebugOutput(), "%s[%d] : aff4:ImageStream : %s \n", __FILE__, __LINE__, resource.c_str());
 #endif
@@ -205,7 +205,7 @@ std::shared_ptr<IAFF4Stream> AFF4ZipContainer::getImageStream(const std::string&
 	return nullptr;
 }
 
-std::string AFF4ZipContainer::sanitizeResource(const std::string& resource) noexcept {
+std::string AFF4ZipContainer::sanitizeResource(const std::string& resource) NOEXCEPT {
 	std::string res = resource;
 #if DEBUG
 	fprintf( aff4::getDebugOutput(), "%s[%d] : sanitize Resource: %s\n", __FILE__, __LINE__, res.c_str());
@@ -234,7 +234,7 @@ std::string AFF4ZipContainer::sanitizeResource(const std::string& resource) noex
  * IAFF4Container
  */
 
-std::vector<std::shared_ptr<IAFF4Image>> AFF4ZipContainer::getImages() noexcept {
+std::vector<std::shared_ptr<IAFF4Image>> AFF4ZipContainer::getImages() NOEXCEPT {
 	// Scan for images on first call, and cache created objects.
 	if (images.empty()) {
 		// Look for all objects that have a RDFType of aff4:Image.
@@ -247,7 +247,7 @@ std::vector<std::shared_ptr<IAFF4Image>> AFF4ZipContainer::getImages() noexcept 
 	return images;
 }
 
-std::shared_ptr<IAFF4Image> AFF4ZipContainer::getImage(const std::string& resource) noexcept {
+std::shared_ptr<IAFF4Image> AFF4ZipContainer::getImage(const std::string& resource) NOEXCEPT {
 	std::vector<std::shared_ptr<IAFF4Image>> images = getImages();
 	for (std::shared_ptr<IAFF4Image> image : images) {
 		if (image->getResourceID().compare(resource) == 0) {
@@ -257,7 +257,7 @@ std::shared_ptr<IAFF4Image> AFF4ZipContainer::getImage(const std::string& resour
 	return nullptr;
 }
 
-std::shared_ptr<IAFF4Map> AFF4ZipContainer::getMap(const std::string& resource) noexcept {
+std::shared_ptr<IAFF4Map> AFF4ZipContainer::getMap(const std::string& resource) NOEXCEPT {
 	std::vector<std::string> objects = model->getResourcesOfType(aff4::Lexicon::AFF4_MAP_TYPE);
 	for (std::string object : objects) {
 		if (object.compare(resource) == 0) {
@@ -267,22 +267,22 @@ std::shared_ptr<IAFF4Map> AFF4ZipContainer::getMap(const std::string& resource) 
 	return nullptr;
 }
 
-void AFF4ZipContainer::setResolver(IAFF4Resolver* newResolver) noexcept {
+void AFF4ZipContainer::setResolver(IAFF4Resolver* newResolver) NOEXCEPT {
 	externalResolver = newResolver;
 }
 
-IAFF4Resolver* AFF4ZipContainer::getResolver() noexcept {
+IAFF4Resolver* AFF4ZipContainer::getResolver() NOEXCEPT {
 	return externalResolver;
 }
 
-void AFF4ZipContainer::close() noexcept {
+void AFF4ZipContainer::close() NOEXCEPT {
 	parent->close();
 }
 
 /*
  * From IAFF4Resolver
  */
-std::shared_ptr<aff4::IAFF4Resource> AFF4ZipContainer::open(const std::string& resource) noexcept {
+std::shared_ptr<aff4::IAFF4Resource> AFF4ZipContainer::open(const std::string& resource) NOEXCEPT {
 #if DEBUG
 	fprintf( aff4::getDebugOutput(), "%s[%d] : open %s\n", __FILE__, __LINE__, resource.c_str());
 #endif
@@ -333,7 +333,7 @@ std::shared_ptr<aff4::IAFF4Resource> AFF4ZipContainer::open(const std::string& r
 	return nullptr;
 }
 
-bool AFF4ZipContainer::hasResource(const std::string& resource) noexcept {
+bool AFF4ZipContainer::hasResource(const std::string& resource) NOEXCEPT {
 #if DEBUG
 	fprintf( aff4::getDebugOutput(), "%s[%d] : hasResource %s\n", __FILE__, __LINE__, resource.c_str());
 #endif
@@ -352,19 +352,19 @@ bool AFF4ZipContainer::hasResource(const std::string& resource) noexcept {
  * AFF4 Resource
  */
 
-std::string AFF4ZipContainer::getResourceID() const noexcept {
+std::string AFF4ZipContainer::getResourceID() const NOEXCEPT {
 	return AFF4Resource::getResourceID();
 }
 
-aff4::Lexicon AFF4ZipContainer::getBaseType() noexcept {
+aff4::Lexicon AFF4ZipContainer::getBaseType() NOEXCEPT {
 	return aff4::Lexicon::AFF4_ZIP_TYPE;
 }
 
-std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> AFF4ZipContainer::getProperties() noexcept {
+std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> AFF4ZipContainer::getProperties() NOEXCEPT {
 	return AFF4Resource::getProperties();
 }
 
-std::vector<aff4::rdf::RDFValue> AFF4ZipContainer::getProperty(aff4::Lexicon resource) noexcept {
+std::vector<aff4::rdf::RDFValue> AFF4ZipContainer::getProperty(aff4::Lexicon resource) NOEXCEPT {
 	return AFF4Resource::getProperty(resource);
 }
 

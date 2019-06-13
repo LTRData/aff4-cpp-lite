@@ -90,7 +90,7 @@ LIBAFF4_API_LOCAL std::vector<std::string> Model::getResourcesOfType(aff4::Lexic
 	return results;
 }
 
-std::unique_ptr<aff4::rdf::RDFValue> Model::getValueFromRaptorTerm(aff4::Lexicon property, raptor_term* term) noexcept {
+std::unique_ptr<aff4::rdf::RDFValue> Model::getValueFromRaptorTerm(aff4::Lexicon property, raptor_term* term) NOEXCEPT {
 	if (term->type == RAPTOR_TERM_TYPE_URI) {
 		// Need to use URI to string, as internals of URI are hidden...
 		char* uri = reinterpret_cast<char*>(raptor_uri_to_string(term->value.uri));

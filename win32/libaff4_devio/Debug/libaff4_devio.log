@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+  libaff4_devio.cpp
+  dllmain.cpp
+  Generating Code...
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/RELEASE' specification
+dllmain.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+     Creating library C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Debug\libaff4_devio.lib and object C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Debug\libaff4_devio.exp
+  libaff4_devio.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Debug\libaff4_devio.dll

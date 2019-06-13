@@ -31,14 +31,14 @@ ZipSegmentStream::~ZipSegmentStream() {
 	close();
 }
 
-uint64_t ZipSegmentStream::size() noexcept {
+uint64_t ZipSegmentStream::size() NOEXCEPT {
 	if (entry.get() == nullptr) {
 		return 0;
 	}
 	return entry->getLength();
 }
 
-void ZipSegmentStream::close() noexcept {
+void ZipSegmentStream::close() NOEXCEPT {
 	if (!closed.exchange(true)) {
 		// NOP
 		entry = nullptr;
@@ -46,7 +46,7 @@ void ZipSegmentStream::close() noexcept {
 	}
 }
 
-int64_t ZipSegmentStream::read(void *buf, uint64_t count, uint64_t offset) noexcept {
+int64_t ZipSegmentStream::read(void *buf, uint64_t count, uint64_t offset) NOEXCEPT {
 	if (entry.get() == nullptr) {
 		errno = EPERM;
 		return -1;
@@ -71,19 +71,19 @@ int64_t ZipSegmentStream::read(void *buf, uint64_t count, uint64_t offset) noexc
  * AFF4 Resource
  */
 
-std::string ZipSegmentStream::getResourceID() const noexcept {
+std::string ZipSegmentStream::getResourceID() const NOEXCEPT {
 	return AFF4Resource::getResourceID();
 }
 
-aff4::Lexicon ZipSegmentStream::getBaseType() noexcept {
+aff4::Lexicon ZipSegmentStream::getBaseType() NOEXCEPT {
 	return aff4::Lexicon::AFF4_IMAGESTREAM_TYPE;
 }
 
-std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> ZipSegmentStream::getProperties() noexcept {
+std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> ZipSegmentStream::getProperties() NOEXCEPT {
 	return AFF4Resource::getProperties();
 }
 
-std::vector<aff4::rdf::RDFValue> ZipSegmentStream::getProperty(aff4::Lexicon resource) noexcept {
+std::vector<aff4::rdf::RDFValue> ZipSegmentStream::getProperty(aff4::Lexicon resource) NOEXCEPT {
 	return AFF4Resource::getProperty(resource);
 }
 

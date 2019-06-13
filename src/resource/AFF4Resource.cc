@@ -19,24 +19,24 @@
 
 namespace aff4 {
 
-AFF4Resource::AFF4Resource(const std::string& resource) noexcept //
+AFF4Resource::AFF4Resource(const std::string& resource) NOEXCEPT //
 		:resource(resource) {
 }
 
 AFF4Resource::AFF4Resource(const std::string& resource,
-		std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>>& properties) noexcept //
+		std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>>& properties) NOEXCEPT //
 				:resource(resource), properties(properties) {
 }
 
-std::string AFF4Resource::getResourceID() const noexcept {
+std::string AFF4Resource::getResourceID() const NOEXCEPT {
 	return resource;
 }
 
-std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> AFF4Resource::getProperties() noexcept {
+std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> AFF4Resource::getProperties() NOEXCEPT {
 	return properties;
 }
 
-aff4::Lexicon AFF4Resource::getBaseType() noexcept {
+aff4::Lexicon AFF4Resource::getBaseType() NOEXCEPT {
 	std::vector<aff4::rdf::RDFValue> properties = getProperty(aff4::Lexicon::AFF4_TYPE);
 	if (!properties.empty()) {
 		for (aff4::rdf::RDFValue v : properties) {
@@ -48,7 +48,7 @@ aff4::Lexicon AFF4Resource::getBaseType() noexcept {
 	return aff4::Lexicon::UNKNOWN;
 }
 
-std::vector<aff4::rdf::RDFValue> AFF4Resource::getProperty(aff4::Lexicon resource) noexcept {
+std::vector<aff4::rdf::RDFValue> AFF4Resource::getProperty(aff4::Lexicon resource) NOEXCEPT {
 	auto it = properties.find(resource);
 	if (it != properties.end()) {
 		return it->second;
@@ -57,11 +57,11 @@ std::vector<aff4::rdf::RDFValue> AFF4Resource::getProperty(aff4::Lexicon resourc
 	return std::vector<aff4::rdf::RDFValue>();
 }
 
-void AFF4Resource::addProperty(aff4::Lexicon property, std::vector<aff4::rdf::RDFValue>& values) noexcept {
+void AFF4Resource::addProperty(aff4::Lexicon property, std::vector<aff4::rdf::RDFValue>& values) NOEXCEPT {
 	properties[property] = values;
 }
 
-void AFF4Resource::addProperty(aff4::Lexicon property, aff4::rdf::RDFValue value) noexcept {
+void AFF4Resource::addProperty(aff4::Lexicon property, aff4::rdf::RDFValue value) NOEXCEPT {
 	std::vector<aff4::rdf::RDFValue> values;
 	values.push_back(value);
 	addProperty(property, values);

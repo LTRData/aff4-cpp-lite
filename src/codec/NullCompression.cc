@@ -28,11 +28,11 @@ NullCompression::NullCompression(uint32_t chunkSize) :
 NullCompression::~NullCompression() {
 }
 
-uint64_t NullCompression::decompress(void* source, uint64_t srcSize, void* destination, uint64_t destSize) noexcept {
+uint64_t NullCompression::decompress(void* source, uint64_t srcSize, void* destination, uint64_t destSize) NOEXCEPT {
 	if (source == nullptr || destination == nullptr) {
 		return 0;
 	}
-	uint64_t toCopy = std::min<uint64_t>(srcSize, destSize);
+	size_t toCopy = (size_t)std::min<uint64_t>(srcSize, destSize);
 	if (toCopy > 0) {
 		std::memcpy(destination, source, toCopy);
 	}

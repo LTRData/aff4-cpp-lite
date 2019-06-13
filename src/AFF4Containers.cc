@@ -47,7 +47,7 @@ namespace aff4 {
 		 * @return A AFF4 container instance
 		 * @throws std::system_error If opening the file failed.
 		 */
-		std::shared_ptr<IAFF4Container> openContainer(const std::string& filename) noexcept {
+		std::shared_ptr<IAFF4Container> openContainer(const std::string& filename) NOEXCEPT {
 #if DEBUG
 			fprintf(aff4::getDebugOutput(), "%s[%d] : %s \n", __FILE__, __LINE__, filename.c_str());
 #endif
@@ -100,13 +100,13 @@ namespace aff4 {
 			return container;
 		}
 
-		bool isAFF4Container(std::string filename) noexcept {
+		bool isAFF4Container(std::string filename) NOEXCEPT {
 			// Cheap nasty not really unicode transformation to lower case.
 			std::transform(filename.begin(), filename.end(), filename.begin(), ::tolower);
 			return aff4::util::hasSuffix(filename, ".af4") || aff4::util::hasSuffix(filename, ".aff4");
 		}
 
-		std::string getResourceID(const std::string& filename) noexcept {
+		std::string getResourceID(const std::string& filename) NOEXCEPT {
 			/*
 			 * Evimetry will store container.description as the very first ZIP file entry.
 			 * Whilst not strictly part of the AFF4 Specification to do so, this is the normal
@@ -199,7 +199,7 @@ namespace aff4 {
 #endif
 				return "";
 			}
-			size_t segmentEntrySize = 0;
+			uint64_t segmentEntrySize = 0;
 			// At this point the segment name checks out, so let get the content.
 			if (header->file_size == -1) {
 				// We need to scan for the ZipDataDescriptor64 structure... this should be in the first 512 bytes that we have read.	
@@ -230,7 +230,7 @@ namespace aff4 {
 			}
 			// And get our data.
 			char* data = (char*)buffer.get() + sizeof(aff4::zip::structs::ZipFileHeader) + header->file_name_length + header->extra_field_len;
-			std::string resource(data, segmentEntrySize);
+			std::string resource(data, (uint32_t)segmentEntrySize);
 			return resource;
 #else
 
@@ -260,7 +260,7 @@ namespace aff4 {
 #endif
 		}
 
-		std::shared_ptr<IAFF4Container> openAFF4Container(const std::string& filename) noexcept {
+		std::shared_ptr<IAFF4Container> openAFF4Container(const std::string& filename) NOEXCEPT {
 			std::shared_ptr<IAFF4Container> container = openContainer(filename);
 			if (container != nullptr) {
 				container->setResolver(nullptr);
@@ -268,7 +268,7 @@ namespace aff4 {
 			return container;
 		}
 
-		std::shared_ptr<IAFF4Container> openAFF4Container(const std::string& filename, IAFF4Resolver* resolver) noexcept {
+		std::shared_ptr<IAFF4Container> openAFF4Container(const std::string& filename, IAFF4Resolver* resolver) NOEXCEPT {
 			std::shared_ptr<IAFF4Container> container = openContainer(filename);
 			if (container != nullptr) {
 				container->setResolver(resolver);
@@ -276,7 +276,7 @@ namespace aff4 {
 			return container;
 		}
 
-		aff4::IAFF4Resolver* createResolver(std::string path, bool scanSubFolders) noexcept {
+		aff4::IAFF4Resolver* createResolver(std::string path, bool scanSubFolders) NOEXCEPT {
 			if (path.empty()) {
 				return nullptr;
 			}

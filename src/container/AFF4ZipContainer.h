@@ -71,37 +71,37 @@ public:
 	/*
 	 * From AFF4Resource.
 	 */
-	std::string getResourceID() const noexcept;
-	aff4::Lexicon getBaseType() noexcept;
-	std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> getProperties() noexcept;
-	std::vector<aff4::rdf::RDFValue> getProperty(aff4::Lexicon resource) noexcept;
+	std::string getResourceID() const NOEXCEPT;
+	aff4::Lexicon getBaseType() NOEXCEPT;
+	std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> getProperties() NOEXCEPT;
+	std::vector<aff4::rdf::RDFValue> getProperty(aff4::Lexicon resource) NOEXCEPT;
 
 	/*
 	 * From IAFF4Resolver
 	 */
-	std::shared_ptr<aff4::IAFF4Resource> open(const std::string& resource) noexcept;
-	bool hasResource(const std::string& resource) noexcept;
+	std::shared_ptr<aff4::IAFF4Resource> open(const std::string& resource) NOEXCEPT;
+	bool hasResource(const std::string& resource) NOEXCEPT;
 
 	/*
 	 * From IAFF4Container
 	 */
-	std::vector<std::shared_ptr<IAFF4Image>> getImages() noexcept;
-	void setResolver(IAFF4Resolver* newResolver) noexcept;
-	IAFF4Resolver* getResolver() noexcept;
-	void close() noexcept;
+	std::vector<std::shared_ptr<IAFF4Image>> getImages() NOEXCEPT;
+	void setResolver(IAFF4Resolver* newResolver) NOEXCEPT;
+	IAFF4Resolver* getResolver() NOEXCEPT;
+	void close() NOEXCEPT;
 
 	/**
 	 * Get the RDF Model for this container.
 	 * @return The RDF model for this container.
 	 */
-	LIBAFF4_API std::shared_ptr<aff4::rdf::Model> getRDFModel() noexcept;
+	LIBAFF4_API std::shared_ptr<aff4::rdf::Model> getRDFModel() NOEXCEPT;
 
 	/**
 	 * Get the Zip Entry details for the given segment name
 	 * @param segmentName The name of the segment.
 	 * @return The Zip Entry for the given segment name.
 	 */
-	LIBAFF4_API std::shared_ptr<aff4::zip::ZipEntry> getSegmentEntry(const std::string& segmentName) noexcept;
+	LIBAFF4_API std::shared_ptr<aff4::zip::ZipEntry> getSegmentEntry(const std::string& segmentName) NOEXCEPT;
 
 	/**
 	 * Create a readable stream for the given segment name.
@@ -109,7 +109,7 @@ public:
 	 * @param segmentName The name of the segment to open
 	 * @return A Stream, or NULL if segment doesn't exist or is unreadable.
 	 */
-	LIBAFF4_API std::shared_ptr<IAFF4Stream> getSegment(const std::string& segmentName) noexcept;
+	LIBAFF4_API std::shared_ptr<IAFF4Stream> getSegment(const std::string& segmentName) NOEXCEPT;
 
 	/**
 	 * Create a readable image stream for the given aff4:ImageStream resource name.
@@ -117,7 +117,7 @@ public:
 	 * @param resource The name of the aff4:ImageStream resource to open
 	 * @return A Stream, or NULL if segment doesn't exist or is unreadable.
 	 */
-	LIBAFF4_API std::shared_ptr<IAFF4Stream> getImageStream(const std::string& resource) noexcept;
+	LIBAFF4_API std::shared_ptr<IAFF4Stream> getImageStream(const std::string& resource) NOEXCEPT;
 
 	/**
 	 * Create an image object of the given resource.
@@ -125,7 +125,7 @@ public:
 	 * @param resource The name of the aff4:Image resource to open
 	 * @return An aff4:Image, or NULL if the resource doesn't exist or is unreadable.
 	 */
-	LIBAFF4_API std::shared_ptr<IAFF4Image> getImage(const std::string& resource) noexcept;
+	LIBAFF4_API std::shared_ptr<IAFF4Image> getImage(const std::string& resource) NOEXCEPT;
 
 	/**
 	 * Create an map object of the given resource.
@@ -133,7 +133,7 @@ public:
 	 * @param resource The name of the aff4:Map resource to open
 	 * @return An aff4:Map, or NULL if the resource doesn't exist or is unreadable.
 	 */
-	LIBAFF4_API std::shared_ptr<IAFF4Map> getMap(const std::string& resource) noexcept;
+	LIBAFF4_API std::shared_ptr<IAFF4Map> getMap(const std::string& resource) NOEXCEPT;
 
 	/**
 	 * Read a number of bytes from the underlying stream starting at offset
@@ -142,7 +142,7 @@ public:
 	 * @param offset The offset from the start of the stream.
 	 * @return The number of bytes read. (0 indicates nothing read, or -1 indicates error.
 	 */
-	LIBAFF4_API int64_t fileRead(void *buf, uint64_t count, uint64_t offset) noexcept;
+	LIBAFF4_API int64_t fileRead(void *buf, uint64_t count, uint64_t offset) NOEXCEPT;
 private:
 	/**
 	 * The parent zip container
@@ -163,17 +163,17 @@ private:
 	/**
 	 * The collection of base properties for this container.
 	 */
-	void setBasicProperties() noexcept;
+	void setBasicProperties() NOEXCEPT;
 
 	/**
 	 * Load the version.txt file and add to the containers properties.
 	 */
-	void loadVersionInformation() noexcept;
+	void loadVersionInformation() NOEXCEPT;
 
 	/**
 	 * Load the RDF model.
 	 */
-	void loadModel() noexcept;
+	void loadModel() NOEXCEPT;
 
 	/**
 	 * Attempt to sanitise the given resource string
@@ -181,7 +181,7 @@ private:
 	 * @param resource The resource string to sanitise
 	 * @return The sanitised resource string.
 	 */
-	std::string sanitizeResource(const std::string& resource) noexcept;
+	std::string sanitizeResource(const std::string& resource) NOEXCEPT;
 };
 
 } /* namespace container */

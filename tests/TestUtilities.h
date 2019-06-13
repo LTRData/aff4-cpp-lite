@@ -30,7 +30,10 @@
 
 #include <algorithm>
 #include <inttypes.h>
+
+#ifndef NO_OPENSSL
 #include <openssl/sha.h>
+#endif
 
 namespace aff4 {
 namespace test {

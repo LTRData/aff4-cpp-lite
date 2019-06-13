@@ -1,0 +1,4 @@
+﻿  stdafx.cc
+  unittest.cc
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
+LINK : fatal error LNK1104: cannot open file 'arm64\Microsoft.VisualStudio.TestTools.CppUnitTestFramework.lib'

@@ -54,7 +54,7 @@ bool hasPrefix(std::string const &value, std::string const &prefix) {
 	}
 }
 
-std::string nameCodecEncode(std::string url) noexcept {
+std::string nameCodecEncode(std::string url) NOEXCEPT {
 	if (hasPrefix(url, "aff4://")) {
 		url = "aff4%3A%2F%2F" + url.substr(7);
 	}
@@ -91,7 +91,7 @@ std::string generateID() {
 	}
 	// generate the string
 	char res[44];
-	std::snprintf(res, 44, AFF4_URN_PREFIX "%02x%02x%02x%02x-%02x%02x-%02x%02x-%02x%02x-%02x%02x%02x%02x%02x%02x", //
+	_snprintf(res, 44, AFF4_URN_PREFIX "%02x%02x%02x%02x-%02x%02x-%02x%02x-%02x%02x-%02x%02x%02x%02x%02x%02x", //
 			values[0], values[1], values[2], values[3], values[4], values[5], values[6], values[7], //
 			values[8], values[9], values[10], values[11], values[12], values[13], values[14], values[15]);
 	std::string resource(res, 43);

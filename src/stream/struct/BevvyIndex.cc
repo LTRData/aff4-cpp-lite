@@ -29,7 +29,7 @@ BevvyIndex::BevvyIndex(const std::string& resource, uint32_t bevvyID, aff4::cont
 	// Get the ZipEntry to get the start of the actual data...
 	std::string segmentName = resource + "/";
 	char buf[9];
-	std::snprintf(buf, 9, "%08" PRIu32, bevvyID);
+	_snprintf(buf, 9, "%08" PRIu32, bevvyID);
 	segmentName += std::string(buf, 8);
 
 	std::shared_ptr<aff4::zip::ZipEntry> zipEntry = parent->getSegmentEntry(segmentName);
@@ -53,7 +53,7 @@ BevvyIndex::BevvyIndex(const std::string& resource, uint32_t bevvyID, aff4::cont
 	uint64_t streamSize = stream->size();
 	if (streamSize > 0) {
 		size = streamSize / sizeof(ImageStreamPoint);
-		buffer = std::unique_ptr<ImageStreamPoint[]>(new ImageStreamPoint[size]);
+		buffer = std::unique_ptr<ImageStreamPoint[]>(new ImageStreamPoint[(size_t)size]);
 		stream->read(buffer.get(), streamSize, 0);
 	}
 	stream->close();
@@ -74,15 +74,15 @@ BevvyIndex::~BevvyIndex() {
 	parent = nullptr;
 }
 
-uint32_t BevvyIndex::getBevvyID() const noexcept {
+uint32_t BevvyIndex::getBevvyID() const NOEXCEPT {
 	return bevvyID;
 }
 
-uint64_t BevvyIndex::getDataOffset() const noexcept {
+uint64_t BevvyIndex::getDataOffset() const NOEXCEPT {
 	return dataChunkOffset;
 }
 
-ImageStreamPoint BevvyIndex::getPoint(uint32_t offset) const noexcept {
+ImageStreamPoint BevvyIndex::getPoint(uint32_t offset) const NOEXCEPT {
 	if (offset >= size || buffer == nullptr || parent == nullptr) {
 		ImageStreamPoint pt;
 		pt.offset = 0;

@@ -65,19 +65,19 @@ public:
 	 * @return The number of number of bytes consumed in the destination buffer.
 	 */
 	LIBAFF4_API virtual uint64_t decompress(void* source, uint64_t srcSize, void* destination,
-			uint64_t destSize) = 0;
+        uint64_t destSize) = 0;
 
 	/**
 	 * Get the resource ID of this codec
 	 * @return The resource ID of this codec
 	 */
-	LIBAFF4_API std::string getResourceID() const noexcept;
+	LIBAFF4_API std::string getResourceID() const NOEXCEPT;
 
 	/**
 	 * Get the chunkSize expected for this codec.
 	 * @return The chunkSize.
 	 */
-	LIBAFF4_API uint32_t getChunkSize() const noexcept;
+	LIBAFF4_API uint32_t getChunkSize() const NOEXCEPT;
 
 protected:
 	/**

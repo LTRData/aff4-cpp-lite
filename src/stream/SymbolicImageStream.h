@@ -64,22 +64,22 @@ public:
 	 * Get the underlying symbol
 	 * @return The underying symbol.
 	 */
-	LIBAFF4_API uint8_t getSymbol() const noexcept;
+	LIBAFF4_API uint8_t getSymbol() const NOEXCEPT;
 
 	/*
 	 * From AFF4Resource.
 	 */
-	std::string getResourceID() const noexcept;
-	aff4::Lexicon getBaseType() noexcept;
-	std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> getProperties() noexcept;
-	std::vector<aff4::rdf::RDFValue> getProperty(aff4::Lexicon resource) noexcept;
+	std::string getResourceID() const NOEXCEPT;
+	aff4::Lexicon getBaseType() NOEXCEPT;
+	std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> getProperties() NOEXCEPT;
+	std::vector<aff4::rdf::RDFValue> getProperty(aff4::Lexicon resource) NOEXCEPT;
 
 	/*
 	 * IAFF4Stream
 	 */
-	uint64_t size() noexcept;
-	void close() noexcept;
-	int64_t read(void *buf, uint64_t count, uint64_t offset) noexcept;
+	uint64_t size() NOEXCEPT;
+	void close() NOEXCEPT;
+	int64_t read(void *buf, uint64_t count, uint64_t offset) NOEXCEPT;
 
 private:
 	/**
@@ -90,7 +90,7 @@ private:
 	/**
 	 * Initialise object properties.
 	 */
-	LIBAFF4_API_LOCAL void initProperties() noexcept;
+	LIBAFF4_API_LOCAL void initProperties() NOEXCEPT;
 };
 
 } /* namespace stream */

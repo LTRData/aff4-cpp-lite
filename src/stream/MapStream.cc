@@ -42,11 +42,11 @@ MapStream::~MapStream() {
 	close();
 }
 
-uint64_t MapStream::size() noexcept {
+uint64_t MapStream::size() NOEXCEPT {
 	return length;
 }
 
-void MapStream::close() noexcept {
+void MapStream::close() NOEXCEPT {
 	if (!closed.exchange(true)) {
 		parent = nullptr;
 		streams.clear();
@@ -54,7 +54,7 @@ void MapStream::close() noexcept {
 	}
 }
 
-int64_t MapStream::read(void *buf, uint64_t count, uint64_t offset) noexcept {
+int64_t MapStream::read(void *buf, uint64_t count, uint64_t offset) NOEXCEPT {
 	if (closed) {
 		errno = EPERM;
 		return -1;
@@ -124,12 +124,12 @@ void MapStream::initStreamVector(std::shared_ptr<aff4::IAFF4Stream>& unknownOver
 	if (stream == nullptr) {
 		return;
 	}
-	std::unique_ptr<char[]> bufferIDX(new char[stream->size()]);
+	std::unique_ptr<char[]> bufferIDX(new char[(size_t)stream->size()]);
 	int64_t res = stream->read(bufferIDX.get(), stream->size(), 0);
 	stream->close();
 	if (res > 0) {
 		// convert the buffer into a string...
-		std::string idx(bufferIDX.get(), res);
+		std::string idx(bufferIDX.get(), (size_t)res);
 
 		std::stringstream data(idx);
 		std::string line;
@@ -178,7 +178,7 @@ void MapStream::initMap(std::shared_ptr<aff4::IAFF4Stream>& mapGapStream) {
 	uint64_t size = 0;
 	if (streamSize > 0) {
 		size = streamSize / sizeof(MapEntryPoint);
-		buffer = std::unique_ptr<MapEntryPoint[]>(new MapEntryPoint[size]);
+		buffer = std::unique_ptr<MapEntryPoint[]>(new MapEntryPoint[(size_t)size]);
 		stream->read(buffer.get(), streamSize, 0);
 	}
 	stream->close();
@@ -313,19 +313,19 @@ std::shared_ptr<aff4::IAFF4Stream> MapStream::queryResolver(aff4::IAFF4Resolver*
  * AFF4 Resource
  */
 
-std::string MapStream::getResourceID() const noexcept {
+std::string MapStream::getResourceID() const NOEXCEPT {
 	return AFF4Resource::getResourceID();
 }
 
-aff4::Lexicon MapStream::getBaseType() noexcept {
+aff4::Lexicon MapStream::getBaseType() NOEXCEPT {
 	return aff4::Lexicon::AFF4_IMAGESTREAM_TYPE;
 }
 
-std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> MapStream::getProperties() noexcept {
+std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> MapStream::getProperties() NOEXCEPT {
 	return AFF4Resource::getProperties();
 }
 
-std::vector<aff4::rdf::RDFValue> MapStream::getProperty(aff4::Lexicon resource) noexcept {
+std::vector<aff4::rdf::RDFValue> MapStream::getProperty(aff4::Lexicon resource) NOEXCEPT {
 	return AFF4Resource::getProperty(resource);
 }
 

@@ -30,11 +30,11 @@ LZ4Compression::~LZ4Compression() {
 	// NOP
 }
 
-uint64_t LZ4Compression::decompress(void* source, uint64_t srcSize, void* destination, uint64_t destSize) noexcept {
+uint64_t LZ4Compression::decompress(void* source, uint64_t srcSize, void* destination, uint64_t destSize) NOEXCEPT {
 	if (source == nullptr || destination == nullptr) {
 		return 0;
 	}
-	return (uint64_t)LZ4_decompress_safe((char*) source, (char*) destination, srcSize, (int)destSize);
+	return (uint64_t)LZ4_decompress_safe((char*) source, (char*) destination, (int) srcSize, (int) destSize);
 }
 
 } /* namespace codec */

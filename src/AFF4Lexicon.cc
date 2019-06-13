@@ -97,7 +97,7 @@ static const std::map<aff4::Lexicon, std::string> lexiconMappings = { //
 
 namespace lexicon {
 
-std::string getLexiconString(aff4::Lexicon lexicon) noexcept {
+std::string getLexiconString(aff4::Lexicon lexicon) NOEXCEPT {
 	auto it = lexiconMappings.find(lexicon);
 	if (it != lexiconMappings.end()) {
 		return it->second;
@@ -106,7 +106,7 @@ std::string getLexiconString(aff4::Lexicon lexicon) noexcept {
 	return getLexiconString(Lexicon::UNKNOWN);
 }
 
-aff4::Lexicon getLexicon(const std::string& lexicon) noexcept {
+aff4::Lexicon getLexicon(const std::string& lexicon) NOEXCEPT {
 	if (lexicon.length() == 0) {
 #if DEBUG
 	fprintf( aff4::getDebugOutput(), "%s[%d] : Unknown lexicon? %s\n", __FILE__, __LINE__, lexicon.c_str());

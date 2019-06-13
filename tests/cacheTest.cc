@@ -85,7 +85,7 @@ protected:
 };
 
 
-typedef typename std::pair<std::shared_ptr<uint8_t>, uint32_t> buffer_t;
+typedef std::pair<std::shared_ptr<uint8_t>, uint32_t> buffer_t;
 
 /**
 * buffer loader.

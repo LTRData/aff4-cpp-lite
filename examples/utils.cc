@@ -96,6 +96,7 @@ void printProperties(std::shared_ptr<aff4::IAFF4Resource> resource, const std::s
 	}
 }
 
+#ifndef NO_OPENSSL
 std::string sha1sum(std::shared_ptr<aff4::IAFF4Stream> stream, uint64_t readSize) {
 	if (stream.get() == nullptr) {
 		return "Failed: no stream?";
@@ -148,3 +149,4 @@ std::string sha1sum(std::shared_ptr<aff4::IAFF4Stream> stream, uint64_t readSize
 	std::string result((char*) &hashStr, (SHA_DIGEST_LENGTH * 2));
 	return result;
 }
+#endif

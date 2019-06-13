@@ -123,6 +123,7 @@ void testProperty(std::shared_ptr<aff4::IAFF4Resource> image, aff4::Lexicon prop
 	CPPUNIT_ASSERT(false);
 }
 
+#ifndef NO_OPENSSL
 std::string sha1sum(std::shared_ptr<IAFF4Stream> stream, uint64_t readSize) {
 	unsigned char hash[SHA_DIGEST_LENGTH];
 	char hashStr[(SHA_DIGEST_LENGTH * 2) + 2];
@@ -202,6 +203,7 @@ std::string sha1sum(int handle, uint64_t toRead, uint64_t readSize) {
 	std::string result((char*) &hashStr, (SHA_DIGEST_LENGTH * 2));
 	return result;
 }
+#endif
 
 } /* namespace test */
 } /* namespace aff4 */

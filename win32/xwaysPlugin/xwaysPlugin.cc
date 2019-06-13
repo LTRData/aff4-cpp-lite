@@ -40,7 +40,7 @@ static std::mutex apiLock;
 * <p>
 * We have a resolver, the parent container, and the aff4:Stream for the map.s
 */
-typedef typename std::tuple<//
+typedef std::tuple<//
 	std::shared_ptr<aff4::IAFF4Resolver>, //
 	std::shared_ptr<aff4::IAFF4Container>, //
 	std::shared_ptr<aff4::IAFF4Stream>> container_t;

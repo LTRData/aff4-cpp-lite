@@ -1,0 +1,11 @@
+﻿  stdafx.cpp
+  cacheTest.cc
+  compression.cc
+  container.cc
+  image.cc
+  resolver.cc
+  streams.cc
+  TestUtilities.cc
+  version.cpp
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
+LINK : fatal error LNK1104: cannot open file 'arm64\Microsoft.VisualStudio.TestTools.CppUnitTestFramework.lib'

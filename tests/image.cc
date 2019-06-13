@@ -168,9 +168,11 @@ const std::string strip_streamSHA1_2 = "7d3d27f667f95f7ec5b9d32121622c0f4b60b48d
 void testStreamContentsInt(std::shared_ptr<aff4::IAFF4Stream> stream, std::string expectedSHA1, uint64_t readSize) {
 	printf("  Read Size: %08" PRIu64 " : ", readSize);
 	CPPUNIT_ASSERT(stream != nullptr);
+#ifndef NO_OPENSSL
 	std::string sha1 = aff4::test::sha1sum(stream, readSize);
 	printf("%s: %s = %s\n", stream->getResourceID().c_str(), expectedSHA1.c_str(), sha1.c_str());
 	CPPUNIT_ASSERT_EQUAL(expectedSHA1, sha1);
+#endif
 }
 
 TEST_METHOD(testContainerLinear) {
@@ -538,8 +540,10 @@ TEST_METHOD(testCAPI_Linear) {
 	CPPUNIT_ASSERT_EQUAL(mapSize_1, size);
 
 	// Create a digest of this
-	std::string sha1 = aff4::test::sha1sum(handle, size);
+#ifndef NO_OPENSSL
+    std::string sha1 = aff4::test::sha1sum(handle, size);
 	CPPUNIT_ASSERT_EQUAL(streamSHA1_1, sha1);
+#endif
 
 	// Close the container.
 	AFF4_close(handle);
@@ -558,8 +562,10 @@ TEST_METHOD(testCAPI_Allocated) {
 	CPPUNIT_ASSERT_EQUAL(mapSize_2, size);
 
 	// Create a digest of this
-	std::string sha1 = aff4::test::sha1sum(handle, size);
+#ifndef NO_OPENSSL
+    std::string sha1 = aff4::test::sha1sum(handle, size);
 	CPPUNIT_ASSERT_EQUAL(streamSHA1_2, sha1);
+#endif
 
 	// Close the container.
 	AFF4_close(handle);
@@ -578,8 +584,10 @@ TEST_METHOD(testCAPI_Striped) {
 	CPPUNIT_ASSERT_EQUAL(strip_mapSize_1, size);
 
 	// Create a digest of this
-	std::string sha1 = aff4::test::sha1sum(handle, size);
+#ifndef NO_OPENSSL
+    std::string sha1 = aff4::test::sha1sum(handle, size);
 	CPPUNIT_ASSERT_EQUAL(strip_streamSHA1_1, sha1);
+#endif
 
 	// Close the container.
 	AFF4_close(handle);
@@ -598,8 +606,10 @@ TEST_METHOD(testCAPI_PMem) {
 	CPPUNIT_ASSERT_EQUAL(pmapSize_1, size);
 
 	// Create a digest of this
-	std::string sha1 = aff4::test::sha1sum(handle, size);
+#ifndef NO_OPENSSL
+    std::string sha1 = aff4::test::sha1sum(handle, size);
 	CPPUNIT_ASSERT_EQUAL(pstreamSHA1_1, sha1);
+#endif
 
 	// Close the container.
 	AFF4_close(handle);

@@ -68,7 +68,7 @@ LIBAFF4_API_LOCAL bool hasPrefix(std::string const &value, std::string const &pr
  * @param url The URL to encode
  * @return The encoded url
  */
-LIBAFF4_API_LOCAL std::string nameCodecEncode(std::string url) noexcept;
+LIBAFF4_API_LOCAL std::string nameCodecEncode(std::string url) NOEXCEPT;
 
 /**
 * Convert UTF-8 to UTF-16 string.

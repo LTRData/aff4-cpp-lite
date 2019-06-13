@@ -1,0 +1,38 @@
+﻿  AFF4Containers.cc
+  AFF4Lexicon.cc
+  RDFValue.cc
+  aff4-c.cc
+  aff4.cc
+  CompressionCodec.cc
+  DeflateCompression.cc
+  LZ4Compression.cc
+  NullCompression.cc
+  SnappyCompression.cc
+  AFF4ZipContainer.cc
+  AFF4Image.cc
+  AFF4Map.cc
+  Model.cc
+  LightResolver.cc
+  AFF4Resource.cc
+  ImageStream.cc
+  ImageStreamFactory.cc
+  MapStream.cc
+  RepeatedImageStream.cc
+  Compiling...
+  SymbolicImageStream.cc
+  BevvyIndex.cc
+  BevvyIndexLoader.cc
+  ChunkLoader.cc
+  StringUtil.cc
+  Zip.cc
+  ZipStream.cc
+  lz4.c
+  lz4frame.c
+  lz4hc.c
+  xxhash.c
+  dllmain.cc
+  stdafx.cc
+     Creating library C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Release\libaff4.lib and object C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Release\libaff4.exp
+  Generating code
+  Finished generating code
+  libaff4.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Release\libaff4.dll

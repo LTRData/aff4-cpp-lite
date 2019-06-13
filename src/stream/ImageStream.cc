@@ -135,11 +135,11 @@ ImageStream::~ImageStream() {
 	close();
 }
 
-uint64_t ImageStream::size() noexcept {
+uint64_t ImageStream::size() NOEXCEPT {
 	return length;
 }
 
-void ImageStream::close() noexcept {
+void ImageStream::close() NOEXCEPT {
 	if (!closed.exchange(true)) {
 		parent = nullptr;
 	}
@@ -155,7 +155,7 @@ inline uint64_t floor(uint64_t offset, uint64_t size) {
 	return (offset / size) * size;
 }
 
-int64_t ImageStream::read(void *buf, uint64_t count, uint64_t offset) noexcept {
+int64_t ImageStream::read(void *buf, uint64_t count, uint64_t offset) NOEXCEPT {
 	if (closed) {
 		errno = EPERM;
 		return -1;
@@ -191,7 +191,7 @@ int64_t ImageStream::read(void *buf, uint64_t count, uint64_t offset) noexcept {
 		uint64_t delta = offset - chunkOffset;
 		uint8_t* source = entry.first.get() + delta;
 		uint64_t toCopy = std::min(entry.second - delta, leftToRead);
-		::memcpy(buffer, source, toCopy);
+		::memcpy(buffer, source, (size_t)toCopy);
 
 		actualRead += toCopy;
 		offset += toCopy;
@@ -205,19 +205,19 @@ int64_t ImageStream::read(void *buf, uint64_t count, uint64_t offset) noexcept {
  * AFF4 Resource
  */
 
-std::string ImageStream::getResourceID() const noexcept {
+std::string ImageStream::getResourceID() const NOEXCEPT {
 	return AFF4Resource::getResourceID();
 }
 
-aff4::Lexicon ImageStream::getBaseType() noexcept {
+aff4::Lexicon ImageStream::getBaseType() NOEXCEPT {
 	return aff4::Lexicon::AFF4_IMAGESTREAM_TYPE;
 }
 
-std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> ImageStream::getProperties() noexcept {
+std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> ImageStream::getProperties() NOEXCEPT {
 	return AFF4Resource::getProperties();
 }
 
-std::vector<aff4::rdf::RDFValue> ImageStream::getProperty(aff4::Lexicon resource) noexcept {
+std::vector<aff4::rdf::RDFValue> ImageStream::getProperty(aff4::Lexicon resource) NOEXCEPT {
 	return AFF4Resource::getProperty(resource);
 }
 

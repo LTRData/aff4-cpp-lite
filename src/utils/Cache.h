@@ -77,7 +77,7 @@ public:
 	 * @param key The Key to get.
 	 * @return The item from the cache.
 	 */
-	const value_t& get(const key_t& key) noexcept {
+	const value_t& get(const key_t& key) NOEXCEPT {
 		std::lock_guard<std::recursive_mutex> lock(cacheLock);
 		auto it = cacheMap.find(key);
 		if (it == cacheMap.end()) {
@@ -101,7 +101,7 @@ public:
 	 * @param key The key to look for.
 	 * @return TRUE if the key exists.
 	 */
-	bool exists(const key_t& key) noexcept {
+	bool exists(const key_t& key) NOEXCEPT {
 		std::lock_guard<std::recursive_mutex> lock(cacheLock);
 		return cacheMap.find(key) != cacheMap.end();
 	}
@@ -110,7 +110,7 @@ public:
 	 * Get the number of elements held by the cache.
 	 * @return The number of elements held by the cache.
 	 */
-	uint64_t size() noexcept {
+	uint64_t size() NOEXCEPT {
 		std::lock_guard<std::recursive_mutex> lock(cacheLock);
 		return cacheMap.size();
 	}
@@ -120,7 +120,7 @@ public:
 	 *
 	 * @return TRUE if the operation succeeded.
 	 */
-	bool invalidate() noexcept {
+	bool invalidate() NOEXCEPT {
 		std::lock_guard<std::recursive_mutex> lock(cacheLock);
 		cacheItems.clear();
 		cacheMap.clear();

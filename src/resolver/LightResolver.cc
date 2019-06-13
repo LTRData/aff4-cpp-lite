@@ -41,7 +41,7 @@ LightResolver::~LightResolver() {
 /*
  * From IAFF4Resolver
  */
-std::shared_ptr<aff4::IAFF4Resource> LightResolver::open(const std::string& resource) noexcept {
+std::shared_ptr<aff4::IAFF4Resource> LightResolver::open(const std::string& resource) NOEXCEPT {
 #if DEBUG
 	fprintf( aff4::getDebugOutput(), "%s[%d] : Open Resource %s\n", __FILE__, __LINE__, resource.c_str());
 #endif
@@ -59,7 +59,7 @@ std::shared_ptr<aff4::IAFF4Resource> LightResolver::open(const std::string& reso
 	return nullptr;
 }
 
-bool LightResolver::hasResource(const std::string& resource) noexcept {
+bool LightResolver::hasResource(const std::string& resource) NOEXCEPT {
 #if DEBUG
 	fprintf( aff4::getDebugOutput(), "%s[%d] : Has Resource %s\n", __FILE__, __LINE__, resource.c_str());
 #endif
@@ -163,15 +163,15 @@ void LightResolver::scanForAFF4Volumes(const std::string& path) {
  * AFF4 Resource
  */
 
-std::string LightResolver::getResourceID() const noexcept {
+std::string LightResolver::getResourceID() const NOEXCEPT {
 	return AFF4Resource::getResourceID();
 }
 
-std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> LightResolver::getProperties() noexcept {
+std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> LightResolver::getProperties() NOEXCEPT {
 	return AFF4Resource::getProperties();
 }
 
-std::vector<aff4::rdf::RDFValue> LightResolver::getProperty(aff4::Lexicon resource) noexcept {
+std::vector<aff4::rdf::RDFValue> LightResolver::getProperty(aff4::Lexicon resource) NOEXCEPT {
 	return AFF4Resource::getProperty(resource);
 }
 

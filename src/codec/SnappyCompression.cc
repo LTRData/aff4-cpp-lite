@@ -29,11 +29,11 @@ SnappyCompression::SnappyCompression(uint32_t chunkSize) :
 SnappyCompression::~SnappyCompression() {
 }
 
-uint64_t SnappyCompression::decompress(void* source, uint64_t srcSize, void* destination, uint64_t destSize) noexcept {
+uint64_t SnappyCompression::decompress(void* source, uint64_t srcSize, void* destination, uint64_t destSize) NOEXCEPT {
 	if (source == nullptr || destination == nullptr) {
 		return 0;
 	}
-	if (snappy::RawUncompress((char*) source, srcSize, (char*) destination)) {
+	if (snappy::RawUncompress((char*) source, (size_t) srcSize, (char*) destination)) {
 		return destSize;
 	} else {
 #if DEBUG

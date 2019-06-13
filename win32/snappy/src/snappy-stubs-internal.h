@@ -47,6 +47,9 @@
 
 #include "snappy-stubs-public.h"
 
+#include <windows.h>
+#include <winnt.h>
+
 #if defined(__x86_64__)
 
 // Enable 64-bit optimized versions of some routines.
@@ -345,6 +348,9 @@ inline int Bits::FindLSBSetNonZero64(uint64 n) {
 }
 
 #elif defined(WIN32)
+
+#include <windows.h>
+#include <winnt.h>
 
 inline int Bits::Log2Floor(uint32 n) {
 	unsigned long r = 0;

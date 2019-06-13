@@ -96,7 +96,7 @@
 #define HAVE_SETJMP_H 1
 
 /* Define to 1 if you have the `stat' function. */
-#define HAVE_STAT 1
+//#define HAVE_STAT 1
 
 /* Define to 1 if you have the <stddef.h> header file. */
 #define HAVE_STDDEF_H 1

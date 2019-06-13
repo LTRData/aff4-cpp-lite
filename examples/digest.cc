@@ -100,7 +100,10 @@ int main(int argc, char* argv[]) {
 			std::shared_ptr<aff4::IAFF4Stream> stream = map->getStream();
 			if (stream != nullptr) {
 				std::cout << "Progess: ";
-				std::cout << "SHA1: " << sha1sum(stream, 1024 * 1024) << std::endl;
+#ifndef NO_OPENSSL
+                std::cout << "SHA1: " << sha1sum(stream, 1024 * 1024);
+#endif
+                std::cout << std::endl;
 			} else {
 				std::cout << "Unable to open stream?" << std::endl;
 				return 1;

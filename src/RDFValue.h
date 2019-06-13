@@ -248,7 +248,7 @@ namespace aff4 {
 			 * Get the value type.
 			 * @return the type.
 			 */
-			LIBAFF4_API inline XSDType getXSDType() const noexcept {
+			LIBAFF4_API inline XSDType getXSDType() const NOEXCEPT {
 				return xsdType;
 			}
 
@@ -256,42 +256,42 @@ namespace aff4 {
 			 * Get the type
 			 * @return the value.
 			 */
-			LIBAFF4_API inline aff4::Lexicon getType() const noexcept {
+			LIBAFF4_API inline aff4::Lexicon getType() const NOEXCEPT {
 				return rdfType;
 			}
 			/**
 			 * Get the string value.
 			 * @return the value.
 			 */
-			LIBAFF4_API inline std::string getValue() const noexcept {
+			LIBAFF4_API inline std::string getValue() const NOEXCEPT {
 				return value_literal;
 			}
 			/**
 			 * Get the integer value.
 			 * @return the value.
 			 */
-			LIBAFF4_API inline int32_t getInteger() const noexcept {
+			LIBAFF4_API inline int32_t getInteger() const NOEXCEPT {
 				return value_int;
 			}
 			/**
 			 * Get the integer value.
 			 * @return the value.
 			 */
-			LIBAFF4_API inline int64_t getLong() const noexcept {
+			LIBAFF4_API inline int64_t getLong() const NOEXCEPT {
 				return value_long;
 			}
 			/**
 			 * Get the boolean value
 			 * @return the value.
 			 */
-			LIBAFF4_API inline bool getBoolean() const noexcept {
+			LIBAFF4_API inline bool getBoolean() const NOEXCEPT {
 				return value_bool;
 			}
 			/**
 			 * Get the XSD Datetime value.
 			 * @return the value.
 			 */
-			LIBAFF4_API inline std::chrono::system_clock::time_point getXSDDateTime() const noexcept {
+			LIBAFF4_API inline std::chrono::system_clock::time_point getXSDDateTime() const NOEXCEPT {
 				return timestamp;
 			}
 
@@ -301,7 +301,7 @@ namespace aff4 {
 			 * Note: For XSDDateTime, the returned format is RFC3339 (not including msec).
 			 * @return the value represented as a string.
 			 */
-			LIBAFF4_API std::string toString() noexcept;
+			LIBAFF4_API std::string toString() NOEXCEPT;
 
 			/**
 			 * Overload == operator

@@ -143,7 +143,7 @@ std::chrono::system_clock::time_point getTime(const std::string& value) {
 	return std::chrono::system_clock::from_time_t(time_epoch);
 }
 
-std::string RDFValue::toString() noexcept {
+std::string RDFValue::toString() NOEXCEPT {
 
 	switch (xsdType) {
 	case UNKNOWN:
@@ -179,7 +179,7 @@ std::string RDFValue::toString() noexcept {
 			break;
 		}
 		// The time format should be RFC3339
-		size_t res = std::strftime(buffer.get(), TIMESTAMP_STRING_BUFFER, "%FT%TZ", &now_tm);
+		size_t res = std::strftime(buffer.get(), TIMESTAMP_STRING_BUFFER, "%Y-%m-%dT%H:%M:%SZ", &now_tm);
 		std::string timestamp(buffer.get(), res);
 		return timestamp;
 

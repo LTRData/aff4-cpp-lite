@@ -66,20 +66,20 @@ public:
 	 * Get the ID of this bevvy index.
 	 * @return The id of this bevvy index.
 	 */
-	LIBAFF4_API_LOCAL uint32_t getBevvyID() const noexcept;
+	LIBAFF4_API_LOCAL uint32_t getBevvyID() const NOEXCEPT;
 
 	/**
 	 * Get the image point for this region
 	 * @param offset The chunk offset.
 	 * @return The ImagePoint.
 	 */
-	LIBAFF4_API_LOCAL ImageStreamPoint getPoint(uint32_t offset) const noexcept;
+	LIBAFF4_API_LOCAL ImageStreamPoint getPoint(uint32_t offset) const NOEXCEPT;
 
 	/**
 	 * The offset within the parent container, that the data chunk resides.
 	 * @return The offset within the container.
 	 */
-	LIBAFF4_API_LOCAL uint64_t getDataOffset() const noexcept;
+	LIBAFF4_API_LOCAL uint64_t getDataOffset() const NOEXCEPT;
 
 private:
 	/**

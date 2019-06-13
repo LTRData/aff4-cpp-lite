@@ -355,14 +355,14 @@ namespace lexicon {
  * @param lexicon The lexicon.
  * @return The full lexicon value.
  */
-LIBAFF4_API std::string getLexiconString(aff4::Lexicon lexicon) noexcept;
+LIBAFF4_API std::string getLexiconString(aff4::Lexicon lexicon) NOEXCEPT;
 
 /**
  * Get the enum for the applicable lexicon string value
  * @param lexicon The lexicon.
  * @return The enum lexicon.
  */
-LIBAFF4_API aff4::Lexicon getLexicon(const std::string& lexicon) noexcept;
+LIBAFF4_API aff4::Lexicon getLexicon(const std::string& lexicon) NOEXCEPT;
 } /* namespace lexicon */
 
 } /* namespace aff4 */

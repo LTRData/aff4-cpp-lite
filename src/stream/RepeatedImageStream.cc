@@ -57,19 +57,19 @@ RepeatedImageStream::~RepeatedImageStream() {
 	close();
 }
 
-uint64_t RepeatedImageStream::size() noexcept {
+uint64_t RepeatedImageStream::size() NOEXCEPT {
 	return ULLONG_MAX;
 }
 
-void RepeatedImageStream::close() noexcept {
+void RepeatedImageStream::close() NOEXCEPT {
 	// NOP
 }
 
-std::string  RepeatedImageStream::getSymbol() noexcept {
+std::string  RepeatedImageStream::getSymbol() NOEXCEPT {
 	return symbol;
 }
 
-int64_t RepeatedImageStream::read(void *buf, uint64_t count, uint64_t offset) noexcept {
+int64_t RepeatedImageStream::read(void *buf, uint64_t count, uint64_t offset) NOEXCEPT {
 	if ((count == 0) || (buf == nullptr)) {
 		return 0;
 	}
@@ -82,7 +82,7 @@ int64_t RepeatedImageStream::read(void *buf, uint64_t count, uint64_t offset) no
 	uint64_t remainder = remaining;
 	while (remainder > 0) {
 		// fill the buffer with the pattern.
-		::memcpy(buffer, (const char*) (BUFFER.get() + boffset), limit);
+		::memcpy(buffer, (const char*) (BUFFER.get() + boffset), (size_t)limit);
 		boffset = 0;
 		remainder -= limit;
 		buffer += limit;
@@ -96,19 +96,19 @@ int64_t RepeatedImageStream::read(void *buf, uint64_t count, uint64_t offset) no
  * AFF4 Resource
  */
 
-std::string RepeatedImageStream::getResourceID() const noexcept {
+std::string RepeatedImageStream::getResourceID() const NOEXCEPT {
 	return AFF4Resource::getResourceID();
 }
 
-aff4::Lexicon RepeatedImageStream::getBaseType() noexcept {
+aff4::Lexicon RepeatedImageStream::getBaseType() NOEXCEPT {
 	return aff4::Lexicon::AFF4_IMAGESTREAM_TYPE;
 }
 
-std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> RepeatedImageStream::getProperties() noexcept {
+std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> RepeatedImageStream::getProperties() NOEXCEPT {
 	return AFF4Resource::getProperties();
 }
 
-std::vector<aff4::rdf::RDFValue> RepeatedImageStream::getProperty(aff4::Lexicon resource) noexcept {
+std::vector<aff4::rdf::RDFValue> RepeatedImageStream::getProperty(aff4::Lexicon resource) NOEXCEPT {
 	return AFF4Resource::getProperty(resource);
 }
 

@@ -65,7 +65,7 @@ cacheBuffer_t ChunkLoader::load(uint64_t offset) {
 	}
 
 	uint64_t chunkOffset = index->getDataOffset() + point.offset;
-	uint64_t chunkLength = point.length;
+	size_t chunkLength = point.length;
 
 	/*
 	 * Chunk Offset and Chunk Length are for offsets into the direct ZIP level container. (we really

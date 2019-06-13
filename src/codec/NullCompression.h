@@ -44,7 +44,7 @@ public:
 	 */
 	LIBAFF4_API_LOCAL explicit NullCompression(uint32_t chunkSize);
 	virtual ~NullCompression();
-	virtual uint64_t decompress(void* source, uint64_t srcSize, void* destination, uint64_t destSize) noexcept;
+	virtual uint64_t decompress(void* source, uint64_t srcSize, void* destination, uint64_t destSize) NOEXCEPT;
 };
 
 } /* namespace codec */

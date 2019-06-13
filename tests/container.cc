@@ -113,7 +113,7 @@ TEST_METHOD(testZipLinear) {
 	CPPUNIT_ASSERT_EQUAL((uint64_t )36, stream->size());
 	CPPUNIT_ASSERT(stream->getResourceID().compare(resource) == 0);
 
-	std::unique_ptr<char[]> buffer(new char[stream->size()]);
+	std::unique_ptr<char[]> buffer(new char[(size_t)stream->size()]);
 	int64_t res = stream->read(buffer.get(), stream->size(), 0);
 	CPPUNIT_ASSERT_EQUAL((uint64_t)36, (uint64_t)res);
 	std::string version = std::string(buffer.get(), 36);
@@ -126,7 +126,7 @@ TEST_METHOD(testZipLinear) {
 	CPPUNIT_ASSERT_EQUAL((uint64_t )152, stream->size());
 	CPPUNIT_ASSERT(stream->getResourceID().compare(resource) == 0);
 
-	std::unique_ptr<char[]> bufferIDX(new char[stream->size()]);
+	std::unique_ptr<char[]> bufferIDX(new char[(size_t)stream->size()]);
 	res = stream->read(bufferIDX.get(), stream->size(), 0);
 	CPPUNIT_ASSERT_EQUAL((uint64_t)152, (uint64_t)res);
 	version = std::string(bufferIDX.get(), 152);
@@ -138,7 +138,8 @@ TEST_METHOD(testZipLinear) {
 	CPPUNIT_ASSERT(stream != nullptr);
 	CPPUNIT_ASSERT_EQUAL((uint64_t )3047794, stream->size());
 	CPPUNIT_ASSERT(stream->getResourceID().compare(resource) == 0);
-	std::string sha1 = aff4::test::sha1sum(stream);
+#ifndef NO_OPENSSL
+    std::string sha1 = aff4::test::sha1sum(stream);
 	expected = "ba85b601a65aef8adf7b0e0fb3144b217d4cd27c";
 	printf("data: %s = %s\n", expected.c_str(), sha1.c_str());
 	CPPUNIT_ASSERT(sha1.compare(expected) == 0);
@@ -153,6 +154,7 @@ TEST_METHOD(testZipLinear) {
 	expected = "38cb789efd5e046c4a8bdbbaeb5c9227dcfc64b2";
 	printf("turtle: %s = %s\n", expected.c_str(), sha1.c_str());
 	CPPUNIT_ASSERT(sha1.compare(expected) == 0);
+#endif
 
 	container.close();
 }
@@ -174,28 +176,28 @@ TEST_METHOD(testZipSegmentRead) {
 	CPPUNIT_ASSERT(stream->getResourceID().compare(resource) == 0);
 
 	// Read full.
-	std::unique_ptr<char[]> buffer(new char[stream->size()]);
+	std::unique_ptr<char[]> buffer(new char[(size_t)stream->size()]);
 	int64_t res = stream->read(buffer.get(), stream->size(), 0);
 	CPPUNIT_ASSERT_EQUAL((uint64_t)43, (uint64_t)res);
-	std::string description = std::string(buffer.get(), res);
+	std::string description = std::string(buffer.get(), (size_t)res);
 	CPPUNIT_ASSERT(expected.compare(description) == 0);
 
 	// Read partial
 	res = stream->read(buffer.get(), 4, 0);
 	CPPUNIT_ASSERT_EQUAL((uint64_t)4, (uint64_t)res);
-	description = std::string(buffer.get(), res);
+	description = std::string(buffer.get(), (size_t)res);
 	CPPUNIT_ASSERT(std::string("aff4").compare(description) == 0);
 
 	// Read partial
 	res = stream->read(buffer.get(), 8, 7);
 	CPPUNIT_ASSERT_EQUAL((uint64_t)8, (uint64_t)res);
-	description = std::string(buffer.get(), res);
+	description = std::string(buffer.get(), (size_t)res);
 	CPPUNIT_ASSERT(std::string("685e15cc").compare(description) == 0);
 
 	// End partial
 	res = stream->read(buffer.get(), 4, 39);
 	CPPUNIT_ASSERT_EQUAL((uint64_t)4, (uint64_t)res);
-	description = std::string(buffer.get(), res);
+	description = std::string(buffer.get(), (size_t)res);
 	CPPUNIT_ASSERT(std::string("7044").compare(description) == 0);
 
 	// clear buffer...
@@ -204,7 +206,7 @@ TEST_METHOD(testZipSegmentRead) {
 	// Past end...
 	res = stream->read(buffer.get(), 8, 39);
 	CPPUNIT_ASSERT_EQUAL((uint64_t)4, (uint64_t)res);
-	description = std::string(buffer.get(), res);
+	description = std::string(buffer.get(), (size_t)res);
 	CPPUNIT_ASSERT(std::string("7044").compare(description) == 0);
 
 	// clear buffer...
@@ -213,7 +215,7 @@ TEST_METHOD(testZipSegmentRead) {
 	// Past end...
 	res = stream->read(buffer.get(), 8, 42);
 	CPPUNIT_ASSERT_EQUAL((uint64_t)1, (uint64_t)res);
-	description = std::string(buffer.get(), res);
+	description = std::string(buffer.get(), (size_t)res);
 	CPPUNIT_ASSERT(std::string("4").compare(description) == 0);
 
 	// clear buffer...
@@ -262,7 +264,7 @@ TEST_METHOD(testZipAllocated) {
 	CPPUNIT_ASSERT_EQUAL((uint64_t )36, stream->size());
 	CPPUNIT_ASSERT(stream->getResourceID().compare(resource) == 0);
 
-	std::unique_ptr<char[]> buffer(new char[stream->size()]);
+	std::unique_ptr<char[]> buffer(new char[(size_t)stream->size()]);
 	int64_t res = stream->read(buffer.get(), stream->size(), 0);
 	CPPUNIT_ASSERT_EQUAL((uint64_t)36, (uint64_t)res);
 	std::string version = std::string(buffer.get(), 36);
@@ -275,7 +277,7 @@ TEST_METHOD(testZipAllocated) {
 	CPPUNIT_ASSERT_EQUAL((uint64_t)187, (uint64_t)stream->size());
 	CPPUNIT_ASSERT(stream->getResourceID().compare(resource) == 0);
 
-	std::unique_ptr<char[]> bufferIDX(new char[stream->size()]);
+	std::unique_ptr<char[]> bufferIDX(new char[(size_t)stream->size()]);
 	res = stream->read(bufferIDX.get(), stream->size(), 0);
 	CPPUNIT_ASSERT_EQUAL((uint64_t)187, (uint64_t)res);
 	version = std::string(bufferIDX.get(), 187);
@@ -287,7 +289,8 @@ TEST_METHOD(testZipAllocated) {
 	CPPUNIT_ASSERT(stream != nullptr);
 	CPPUNIT_ASSERT_EQUAL((uint64_t )3047794, stream->size());
 	CPPUNIT_ASSERT(stream->getResourceID().compare(resource) == 0);
-	std::string sha1 = aff4::test::sha1sum(stream);
+#ifndef NO_OPENSSL
+    std::string sha1 = aff4::test::sha1sum(stream);
 	expected = "017f7093b97ef9349334c6654c678eb3c048b99b";
 	printf("data: %s = %s\n", expected.c_str(), sha1.c_str());
 	CPPUNIT_ASSERT(sha1.compare(expected) == 0);
@@ -302,6 +305,7 @@ TEST_METHOD(testZipAllocated) {
 	expected = "680b010ac80801cf9a555efe899d0ed2c3e6ecf6";
 	printf("turtle: %s = %s\n", expected.c_str(), sha1.c_str());
 	CPPUNIT_ASSERT(sha1.compare(expected) == 0);
+#endif
 
 	container.close();
 }
@@ -427,18 +431,20 @@ void testContainerDescriptionInt(std::shared_ptr<aff4::IAFF4Container> container
 	std::shared_ptr<aff4::IAFF4Stream> stream) {
 	CPPUNIT_ASSERT(container != nullptr);
 	CPPUNIT_ASSERT(stream != nullptr);
-	std::unique_ptr<char[]> buffer(new char[stream->size()]);
+	std::unique_ptr<char[]> buffer(new char[(size_t)stream->size()]);
 	int64_t res = stream->read(buffer.get(), stream->size(), 0);
 	CPPUNIT_ASSERT_EQUAL((uint64_t)res, stream->size());
-	std::string description(buffer.get(), stream->size());
+	std::string description(buffer.get(), (size_t)stream->size());
 	CPPUNIT_ASSERT_EQUAL(container->getResourceID(), description);
 }
 
 void testStreamContents(std::shared_ptr<aff4::IAFF4Stream> stream, std::string expectedSHA1) {
 	CPPUNIT_ASSERT(stream != nullptr);
-	std::string sha1 = aff4::test::sha1sum(stream);
+#ifndef NO_OPENSSL
+    std::string sha1 = aff4::test::sha1sum(stream);
 	printf("%s: %s = %s\n", stream->getResourceID().c_str(), expectedSHA1.c_str(), sha1.c_str());
 	CPPUNIT_ASSERT(sha1.compare(expectedSHA1) == 0);
+#endif
 }
 
 TEST_METHOD(testContainerDescription) {

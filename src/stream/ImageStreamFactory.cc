@@ -42,7 +42,7 @@ std::shared_ptr<IAFF4Stream> createSymbolicStream(const std::string& resource) {
 std::shared_ptr<IAFF4Stream> createSymbolicStream(uint8_t symbol) {
 	std::string resource = aff4::lexicon::getLexiconString(aff4::Lexicon::AFF4_IMAGESTREAM_SYMBOLIC_PREFIX);
 	char buf[4];
-	std::snprintf(buf, 3, "%02X", symbol);
+	_snprintf(buf, 3, "%02X", symbol);
 	resource += std::string(buf, 2);
 	return std::make_shared<SymbolicImageStream>(resource, symbol);
 }

@@ -75,9 +75,11 @@ void streams::tearDown() {
 void testStreamContents(std::shared_ptr<aff4::IAFF4Stream> stream, std::string expectedSHA1,
 	uint64_t readSize) {
 	CPPUNIT_ASSERT(stream != nullptr);
-	std::string sha1 = aff4::test::sha1sum(stream, readSize);
+#ifndef NO_OPENSSL
+    std::string sha1 = aff4::test::sha1sum(stream, readSize);
 	printf("%s: %s = %s\n", stream->getResourceID().c_str(), expectedSHA1.c_str(), sha1.c_str());
 	CPPUNIT_ASSERT_EQUAL(expectedSHA1, sha1);
+#endif
 }
 
 /*
@@ -166,7 +168,7 @@ TEST_METHOD(testCreateSymbolicViaResourceAllValues) {
 
 		std::string resource = aff4::lexicon::getLexiconString(aff4::Lexicon::AFF4_IMAGESTREAM_SYMBOLIC_PREFIX);
 		char buf[3];
-		std::snprintf(buf, 3, "%02X", symbol);
+		_snprintf(buf, 3, "%02X", symbol);
 		resource += std::string(buf, 2);
 
 		std::shared_ptr<aff4::stream::SymbolicImageStream> stream = std::make_shared<aff4::stream::SymbolicImageStream>(
@@ -185,7 +187,7 @@ TEST_METHOD(testCreateSymbolicAndReadAllValues) {
 
 		std::string resource = aff4::lexicon::getLexiconString(aff4::Lexicon::AFF4_IMAGESTREAM_SYMBOLIC_PREFIX);
 		char buf[3];
-		std::snprintf(buf, 3, "%02X", symbol);
+		_snprintf(buf, 3, "%02X", symbol);
 		resource += std::string(buf, 2);
 
 		std::shared_ptr<aff4::stream::SymbolicImageStream> stream = std::make_shared<aff4::stream::SymbolicImageStream>(

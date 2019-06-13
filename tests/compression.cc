@@ -44,7 +44,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 static std::string srcText =
 "alksjdfwienflkdfasdfasfasdfasdfasdfadfasdflka jflaskjadflk;jas ;lkdfjlaskdfjlaskdjflkalksjdfwienflkdfasdfasfasdfasdfasdalksjdfwi";
-static int blockLength = srcText.length();
+static int blockLength = (int)srcText.length();
 
 namespace AFF4UnitTests
 {
@@ -224,7 +224,7 @@ TEST_METHOD(testNoCompression) {
 	std::shared_ptr<aff4::codec::CompressionCodec> codec = aff4::codec::getCodec(
 			aff4::Lexicon::AFF4_IMAGE_COMPRESSION_STORED, blockLength);
 
-	int res = codec->decompress(source.get(), blockLength, destination.get(), blockLength);
+	int res = (int)codec->decompress(source.get(), blockLength, destination.get(), blockLength);
 	CPPUNIT_ASSERT_EQUAL(blockLength, res);
 	std::string dest(destination.get(), blockLength);
 	CPPUNIT_ASSERT_EQUAL(srcText, dest);

@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\tests",
+    "\\win32",
+    "\\win32\\libaff4_devio",
+    "\\win32\\xwaysPlugin"
+  ],
+  "SelectedNode": "\\win32\\libaff4_devio\\libaff4_devio.cpp",
+  "PreviewInSolutionExplorer": false
+}

@@ -50,7 +50,7 @@ along with AFF4 CPP.  If not, see <http://www.gnu.org/licenses/>.
 
 #define XWAYSAFF4_API __declspec(dllexport)
 
-#ifdef _WIN64 
+#ifndef _M_IX86
 #define XWAYSAFF4_CALLING 
 #else
 #define XWAYSAFF4_CALLING __stdcall

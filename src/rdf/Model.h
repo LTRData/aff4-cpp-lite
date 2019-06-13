@@ -103,7 +103,7 @@ private:
 	 * @param term The raptor term
 	 * @return The RDF Value or nullptr if unable to convert.
 	 */
-	std::unique_ptr<aff4::rdf::RDFValue> getValueFromRaptorTerm(aff4::Lexicon property, raptor_term* term) noexcept;
+	std::unique_ptr<aff4::rdf::RDFValue> getValueFromRaptorTerm(aff4::Lexicon property, raptor_term* term) NOEXCEPT;
 
 };
 

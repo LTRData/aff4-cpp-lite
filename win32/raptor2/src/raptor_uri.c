@@ -27,6 +27,10 @@
 #include <raptor_config.h>
 #endif
 
+#ifdef _WIN32
+#include <WINDOWS.H>
+#endif
+
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -1678,6 +1682,8 @@ raptor_uri_filename_exists(const unsigned char* path)
 #ifdef HAVE_STAT
   if(!stat((const char*)path, &stat_buffer))
     exists = S_ISREG(stat_buffer.st_mode);
+#elif _WIN32
+  exists = GetFileAttributesA(path) != INVALID_FILE_ATTRIBUTES ? 1 : GetLastError() == ERROR_FILE_NOT_FOUND ? 0 : -1;
 #else
   exists = (access(path, R_OK) < 0) ? -1 : 1;
 #endif

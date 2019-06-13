@@ -1,0 +1,7 @@
+﻿  stdafx.cpp
+  dllmain.cpp
+  libaff4_devio.cpp
+     Creating library C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Release\libaff4_devio.lib and object C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Release\libaff4_devio.exp
+  Generating code
+  Finished generating code
+  libaff4_devio.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Release\libaff4_devio.dll

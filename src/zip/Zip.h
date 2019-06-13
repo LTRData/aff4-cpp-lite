@@ -311,37 +311,37 @@ public:
 	/**
 	 * Close the underlying file for this zip container.
 	 */
-	LIBAFF4_API void close() noexcept;
+	LIBAFF4_API void close() NOEXCEPT;
 
 	/**
 	 * Get the filename of the zip container.
 	 * @return The zip containers filename.
 	 */
-	LIBAFF4_API std::string getFilename() const noexcept ;
+	LIBAFF4_API std::string getFilename() const NOEXCEPT ;
 
 	/**
 	 * Get the comment from the Zip container.
 	 * @return The comment, or "" if no comment is present.
 	 */
-	LIBAFF4_API std::string getZipComment() const noexcept;
+	LIBAFF4_API std::string getZipComment() const NOEXCEPT;
 	/**
 	 * Get a vector of all zip entries.
 	 * @return A vector of all zip segments available in this zip file.
 	 */
-	LIBAFF4_API std::vector<std::shared_ptr<ZipEntry>> getEntries() const noexcept;
+	LIBAFF4_API std::vector<std::shared_ptr<ZipEntry>> getEntries() const NOEXCEPT;
 
 	/**
 	 * Does the zip file contain the given segment?
 	 * @param segmentName The name of the segment
 	 * @return TRUE if the Zip container has this segment.
 	 */
-	LIBAFF4_API bool hasEntry(const std::string& segmentName) const noexcept;
+	LIBAFF4_API bool hasEntry(const std::string& segmentName) const NOEXCEPT;
 	/**
 	 * Create a readable stream for the given segment name
 	 * @param segmentName The name of the segment to open
 	 * @return A Stream, or NULL if segment doesn't exist or is unreadable.
 	 */
-	LIBAFF4_API std::shared_ptr<IAFF4Stream> getStream(const std::string& segmentName) noexcept;
+	LIBAFF4_API std::shared_ptr<IAFF4Stream> getStream(const std::string& segmentName) NOEXCEPT;
 
 	/**
 	 * Read a number of bytes from the stream starting at offset
@@ -350,7 +350,7 @@ public:
 	 * @param offset The offset from the start of the stream.
 	 * @return The number of bytes read. (0 indicates nothing read, or -1 indicates error.
 	 */
-	LIBAFF4_API int64_t fileRead(void *buf, uint64_t count, uint64_t offset) noexcept;
+	LIBAFF4_API int64_t fileRead(void *buf, uint64_t count, uint64_t offset) NOEXCEPT;
 private:
 	/**
 	 * The filename of the zip container.
@@ -384,7 +384,7 @@ private:
 	/**
 	 * Attempt to find the Central Directory, and construct a vector of ZipEntry.
 	 */
-	LIBAFF4_API_LOCAL void parseCD() noexcept;
+	LIBAFF4_API_LOCAL void parseCD() NOEXCEPT;
 };
 
 } /* namespace zip */

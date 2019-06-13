@@ -1,0 +1,3 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.Cpp.Common.props(27,6): warning MSB4211: The property "VCProjectUpgraderObjectName" is being set to a value for the first time, but it was already consumed at "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\VC\VCTargets\Microsoft.Cpp.Redirect.14.props (30,5)".
+  unitTests.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM\Release\unitTests.dll
+  unitTests.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM\Release\unitTests.pdb (Full PDB)

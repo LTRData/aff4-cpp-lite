@@ -29,7 +29,7 @@ DeflateCompression::~DeflateCompression() {
 	// NOP
 }
 
-uint64_t DeflateCompression::decompress(void* source, uint64_t srcSize, void* destination, uint64_t destSize) noexcept {
+uint64_t DeflateCompression::decompress(void* source, uint64_t srcSize, void* destination, uint64_t destSize) NOEXCEPT {
 	if (source == nullptr || destination == nullptr) {
 		return 0;
 	}

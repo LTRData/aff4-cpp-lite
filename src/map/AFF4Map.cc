@@ -84,7 +84,7 @@ uint64_t AFF4Map::size() const {
 	return length;
 }
 
-std::shared_ptr<IAFF4Stream> AFF4Map::getStream() noexcept {
+std::shared_ptr<IAFF4Stream> AFF4Map::getStream() NOEXCEPT {
 	std::lock_guard<std::recursive_mutex> lock(mapLock);
 	/*
 	 * Always generate a new map stream. Note: This is inline with the Java based reader as well.
@@ -93,22 +93,22 @@ std::shared_ptr<IAFF4Stream> AFF4Map::getStream() noexcept {
 			mapGapStreamOverride);
 }
 
-std::shared_ptr<IAFF4Stream> AFF4Map::getUnknownStreamOverride() noexcept {
+std::shared_ptr<IAFF4Stream> AFF4Map::getUnknownStreamOverride() NOEXCEPT {
 	std::lock_guard<std::recursive_mutex> lock(mapLock);
 	return unknownOverride;
 }
 
-void AFF4Map::setUnknownStreamOverride(std::shared_ptr<IAFF4Stream>& stream) noexcept {
+void AFF4Map::setUnknownStreamOverride(std::shared_ptr<IAFF4Stream>& stream) NOEXCEPT {
 	std::lock_guard<std::recursive_mutex> lock(mapLock);
 	unknownOverride = stream;
 }
 
-std::shared_ptr<IAFF4Stream> AFF4Map::getMapGapStreamOverride() noexcept {
+std::shared_ptr<IAFF4Stream> AFF4Map::getMapGapStreamOverride() NOEXCEPT {
 	std::lock_guard<std::recursive_mutex> lock(mapLock);
 	return mapGapStreamOverride;
 }
 
-void AFF4Map::setMapGapStreamOverride(std::shared_ptr<IAFF4Stream>& stream) noexcept {
+void AFF4Map::setMapGapStreamOverride(std::shared_ptr<IAFF4Stream>& stream) NOEXCEPT {
 	std::lock_guard<std::recursive_mutex> lock(mapLock);
 	mapGapStreamOverride = stream;
 }
@@ -117,19 +117,19 @@ void AFF4Map::setMapGapStreamOverride(std::shared_ptr<IAFF4Stream>& stream) noex
  * AFF4 Resource
  */
 
-std::string AFF4Map::getResourceID() const noexcept {
+std::string AFF4Map::getResourceID() const NOEXCEPT {
 	return AFF4Resource::getResourceID();
 }
 
-aff4::Lexicon AFF4Map::getBaseType() noexcept {
+aff4::Lexicon AFF4Map::getBaseType() NOEXCEPT {
 	return aff4::Lexicon::AFF4_MAP_TYPE;
 }
 
-std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> AFF4Map::getProperties() noexcept {
+std::map<aff4::Lexicon, std::vector<aff4::rdf::RDFValue>> AFF4Map::getProperties() NOEXCEPT {
 	return AFF4Resource::getProperties();
 }
 
-std::vector<aff4::rdf::RDFValue> AFF4Map::getProperty(aff4::Lexicon resource) noexcept {
+std::vector<aff4::rdf::RDFValue> AFF4Map::getProperty(aff4::Lexicon resource) NOEXCEPT {
 	return AFF4Resource::getProperty(resource);
 }
 
