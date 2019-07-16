@@ -1,3 +1,1 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(88,5): warning MSB4211: The property "TargetPlatformIdentifier" is being set to a value for the first time, but it was already consumed at "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Cpp.Common.props (103,5)".
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(89,5): warning MSB4211: The property "TargetPlatformVersion" is being set to a value for the first time, but it was already consumed at "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Cpp.Common.props (103,5)".
-  aff4-extract.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Win32\Debug\aff4-extract.exe
+﻿  aff4-extract.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Win32\Debug\aff4-extract.exe

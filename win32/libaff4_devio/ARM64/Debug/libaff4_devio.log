@@ -1,7 +1,3 @@
-﻿  stdafx.cpp
-  dllmain.cpp
-  libaff4_devio.cpp
-  Generating Code...
-LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/RELEASE' specification
+﻿LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/RELEASE' specification
      Creating library C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Debug\libaff4_devio.lib and object C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Debug\libaff4_devio.exp
   libaff4_devio.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Debug\libaff4_devio.dll

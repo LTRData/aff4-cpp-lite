@@ -1,6 +1,6 @@
 ﻿  dllmain.cpp
-  Util.cc
   stdafx.cpp
+  Util.cc
   xwaysPlugin.cc
 c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(117): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
 c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(126): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size

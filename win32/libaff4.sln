@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2048
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libaff4", "libaff4\libaff4.vcxproj", "{3F088AF6-8BA8-4266-AF48-A5E64BE6942D}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -164,16 +164,14 @@ Global
 		{8C41A022-A68C-40BD-BCF4-239AA3EF4186}.Release|x64.Build.0 = Release|x64
 		{8C41A022-A68C-40BD-BCF4-239AA3EF4186}.Release|x86.ActiveCfg = Release|Win32
 		{8C41A022-A68C-40BD-BCF4-239AA3EF4186}.Release|x86.Build.0 = Release|Win32
-		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Debug|ARM.ActiveCfg = Debug|ARM
-		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Debug|ARM.Build.0 = Debug|ARM
-		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Debug|ARM.ActiveCfg = Debug|Win32
+		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Debug|ARM64.ActiveCfg = Debug|Win32
 		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Debug|x64.ActiveCfg = Debug|x64
 		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Debug|x64.Build.0 = Debug|x64
 		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Debug|x86.ActiveCfg = Debug|Win32
 		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Debug|x86.Build.0 = Debug|Win32
-		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Release|ARM.ActiveCfg = Release|ARM
-		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Release|ARM.Build.0 = Release|ARM
-		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Release|ARM64.ActiveCfg = Release|ARM64
+		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Release|ARM.ActiveCfg = Release|Win32
+		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Release|ARM64.ActiveCfg = Release|Win32
 		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Release|x64.ActiveCfg = Release|x64
 		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Release|x64.Build.0 = Release|x64
 		{F5965EF9-F6CA-439D-B85F-2B10BAEFBEC4}.Release|x86.ActiveCfg = Release|Win32

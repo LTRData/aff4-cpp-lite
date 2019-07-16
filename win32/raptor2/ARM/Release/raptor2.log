@@ -1,3 +1,47 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(88,5): warning MSB4211: The property "TargetPlatformIdentifier" is being set to a value for the first time, but it was already consumed at "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Cpp.Common.props (103,5)".
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(89,5): warning MSB4211: The property "TargetPlatformVersion" is being set to a value for the first time, but it was already consumed at "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Cpp.Common.props (103,5)".
+﻿  ntriples_parse.c
+  parsedate.c
+  raptor_abbrev.c
+  raptor_avltree.c
+  raptor_concepts.c
+  raptor_escaped.c
+  raptor_general.c
+  raptor_guess.c
+  raptor_iostream.c
+  raptor_locator.c
+  raptor_log.c
+  raptor_memstr.c
+  raptor_namespace.c
+  raptor_ntriples.c
+  raptor_option.c
+  raptor_parse.c
+  raptor_permute_test.c
+  raptor_qname.c
+  raptor_rfc2396.c
+  raptor_sax2.c
+  Compiling...
+  raptor_sequence.c
+  raptor_serialize.c
+  raptor_serialize_ntriples.c
+  raptor_serialize_turtle.c
+  raptor_set.c
+  raptor_statement.c
+  raptor_stringbuffer.c
+  raptor_syntax_description.c
+  raptor_term.c
+  raptor_turtle_writer.c
+  raptor_unicode.c
+  raptor_uri.c
+  raptor_win32.c
+  raptor_www.c
+  raptor_xml.c
+  raptor_xml_writer.c
+  snprintf.c
+  sort_r.c
+  turtle_common.c
+  turtle_lexer.c
+  Compiling...
+  turtle_parser.c
+     Creating library C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM\Release\raptor2.lib and object C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM\Release\raptor2.exp
+  Generating code
+  Finished generating code
   raptor2.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM\Release\raptor2.dll

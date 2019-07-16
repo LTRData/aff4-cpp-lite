@@ -93,7 +93,7 @@ private:
 	 * @param offset The offset from the start of the stream.
 	 * @return The number of bytes read. (0 indicates nothing read, or -1 indicates error).
 	 */
-	int64_t readCompressed(void *buf, uint64_t count, uint64_t offset) noexcept;
+	int64_t readCompressed(void *buf, uint64_t count, uint64_t offset) NOEXCEPT;
 
 };
 

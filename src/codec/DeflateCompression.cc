@@ -37,9 +37,9 @@ uint64_t DeflateCompression::decompress(void* source, uint64_t srcSize, void* de
 	z_stream zstream;
 	::memset(&zstream, 0, sizeof(zstream));
 	zstream.next_in = (Bytef*)source;
-	zstream.avail_in = srcSize;
+	zstream.avail_in = (uInt)srcSize;
 	zstream.next_out = (Bytef*)destination;
-	zstream.avail_out = destSize;
+	zstream.avail_out = (uInt)destSize;
 
 	if (inflateInit2(&zstream, -15) != Z_OK) {
 		return -1;

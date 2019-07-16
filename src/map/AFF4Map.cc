@@ -87,12 +87,12 @@ AFF4Map::AFF4Map(const std::string& resource, aff4::container::AFF4ZipContainer*
 		if (stream == nullptr) {
 			return;
 		}
-		std::unique_ptr<char[]> bufferIDX(new char[stream->size()]);
+		std::unique_ptr<char[]> bufferIDX(new char[(uintptr_t)stream->size()]);
 		int64_t res = stream->read(bufferIDX.get(), stream->size(), 0);
 		stream->close();
 		if (res > 0) {
 			// convert the buffer into a string...
-			std::string idx(bufferIDX.get(), res);
+			std::string idx(bufferIDX.get(), (uintptr_t)res);
 
 			std::stringstream data(idx);
 			std::string line;
