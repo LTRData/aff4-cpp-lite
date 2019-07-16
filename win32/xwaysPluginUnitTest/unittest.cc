@@ -21,10 +21,8 @@ along with AFF4 CPP.  If not, see <http://www.gnu.org/licenses/>.
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 #include "xwaysPlugin.h"
-
-#ifndef NO_OPENSSL
 #include <openssl/sha.h>
-#endif
+#include <shlwapi.h>
 
 #define UNITTEST_BASE_PATH L"..\\..\\..\\"
 
@@ -34,7 +32,6 @@ namespace xwaysPluginUnitTest
 	{
 	public:
 
-#ifndef NO_OPENSSL
 		/**
 		* Get the SHA1 sum of the image exported.
 		*/
@@ -80,13 +77,12 @@ namespace xwaysPluginUnitTest
 			std::string result((char*)&hashStr, (SHA_DIGEST_LENGTH * 2));
 			return result;
 		}
-#endif
 
 		/**
 		* Check the sparseness of the region.
 		*/
 		void checkIsSparse(PVOID handle, INT64 offset, INT64 size, DWORD flag) {
-			std::unique_ptr<uint8_t[]> buffer(new uint8_t[(size_t)size]);
+			std::unique_ptr<uint8_t[]> buffer(new uint8_t[size]);
 
 			// NO sparse check
 			BYTE flags = 0;
@@ -116,7 +112,7 @@ namespace xwaysPluginUnitTest
 
 		TEST_METHOD(testInitNULLImgInfo)
 		{
-			std::wstring filename(UNITTEST_BASE_PATH L"tests\\resources\\Base-Linear.aff4");
+			std::wstring filename(UNITTEST_BASE_PATH "tests\\resources\\Base-Linear.aff4");
 
 			PVOID handle = IIO_Init(NULL, (LPWSTR)filename.c_str(), NULL, 0, NULL, NULL);
 			Assert::IsNull(handle);
@@ -124,7 +120,7 @@ namespace xwaysPluginUnitTest
 
 		TEST_METHOD(testBasicLinearOpen)
 		{
-			std::wstring filename(UNITTEST_BASE_PATH L"tests\\resources\\Base-Linear.aff4");
+			std::wstring filename(UNITTEST_BASE_PATH "tests\\resources\\Base-Linear.aff4");
 			ImageInfo info;
 			info.nSize = sizeof(ImageInfo);
 			info.nFlags = 0;
@@ -147,7 +143,7 @@ namespace xwaysPluginUnitTest
 
 		TEST_METHOD(testBasicLinearRead)
 		{
-			std::wstring filename(UNITTEST_BASE_PATH L"tests\\resources\\Base-Linear.aff4");
+			std::wstring filename(UNITTEST_BASE_PATH "tests\\resources\\Base-Linear.aff4");
 			ImageInfo info;
 			info.nSize = sizeof(ImageInfo);
 			info.nFlags = 0;
@@ -166,18 +162,16 @@ namespace xwaysPluginUnitTest
 			std::wstring textDesc(info.lpTextualDescr);
 			std::wcout << textDesc << std::endl;
 
-#ifndef NO_OPENSSL
 			std::string sha1 = sha1sum(handle, info.nSectorCount * info.nSectorSize, 128 * 1024);
 			std::string expectedSHA1 = "7d3d27f667f95f7ec5b9d32121622c0f4b60b48d";
 			Assert::AreEqual(expectedSHA1, sha1);
-#endif
 
 			IIO_Done(handle, info.lpTextualDescr);
 		}
 
 		TEST_METHOD(testAllocatedSparseMap)
 		{
-			std::wstring filename(UNITTEST_BASE_PATH L"tests\\resources\\Base-Allocated.aff4");
+			std::wstring filename(UNITTEST_BASE_PATH "tests\\resources\\Base-Allocated.aff4");
 			ImageInfo info;
 			info.nSize = sizeof(ImageInfo);
 			info.nFlags = 0;
@@ -195,11 +189,9 @@ namespace xwaysPluginUnitTest
 			Assert::IsNotNull(info.lpTextualDescr);
 			std::wstring textDesc(info.lpTextualDescr);
 
-#ifndef NO_OPENSSL
 			std::string sha1 = sha1sum(handle, info.nSectorCount * info.nSectorSize, 128 * 1024);
 			std::string expectedSHA1 = "e8650e89b262cf0b4b73c025312488d5a6317a26";
 			Assert::AreEqual(expectedSHA1, sha1);
-#endif
 
 			// We now test the map for sparse regions.
 
@@ -322,6 +314,10 @@ namespace xwaysPluginUnitTest
 		TEST_METHOD(testMapSize)
 		{
 			std::wstring filename(L"D:\\Test2\\ToshibaUSB_PhysicalDrive3_C.aff4");
+			if (PathFileExistsW(filename.c_str()) == FALSE) {
+				Assert::IsTrue(true);
+				return;
+			}
 			ImageInfo info;
 			info.nSize = sizeof(ImageInfo);
 			info.nFlags = 0;
@@ -340,11 +336,9 @@ namespace xwaysPluginUnitTest
 			std::wstring textDesc(info.lpTextualDescr);
 			std::wcout << textDesc << std::endl;
 
-#ifndef NO_OPENSSL
 			std::string sha1 = sha1sum(handle, info.nSectorCount * info.nSectorSize, 128 * 1024);
 			std::string expectedSHA1 = "1865bc3df2cc5b4ed60fc86909fd534362181bed";
 			Assert::AreEqual(expectedSHA1, sha1);
-#endif
 
 			IIO_Done(handle, info.lpTextualDescr);
 		}
