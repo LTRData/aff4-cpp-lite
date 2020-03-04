@@ -1,18 +1,16 @@
-﻿  dllmain.cpp
-  stdafx.cpp
-  Util.cc
+﻿  Util.cc
   xwaysPlugin.cc
-c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(117): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
-c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(126): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
-c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(136): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
-c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(142): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
-c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(150): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
-c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(157): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
-c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(214): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
-c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(243): warning C4311: 'type cast': pointer truncation from 'PVOID' to 'INT'
-c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(243): warning C4302: 'type cast': truncation from 'PVOID' to 'INT'
-c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(306): warning C4311: 'type cast': pointer truncation from 'PVOID' to 'INT'
-c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(306): warning C4302: 'type cast': truncation from 'PVOID' to 'INT'
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(212): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(224): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(237): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(246): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(257): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(267): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(358): warning C4312: 'type cast': conversion from 'int' to 'PVOID' of greater size
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(385): warning C4311: 'type cast': pointer truncation from 'PVOID' to 'INT'
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(385): warning C4302: 'type cast': truncation from 'PVOID' to 'INT'
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(463): warning C4311: 'type cast': pointer truncation from 'PVOID' to 'INT'
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(463): warning C4302: 'type cast': truncation from 'PVOID' to 'INT'
   Generating Code...
      Creating library C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Debug\imageAFF4.lib and object C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Debug\imageAFF4.exp
   xwaysPlugin.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Debug\imageAFF4.dll

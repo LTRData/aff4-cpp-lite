@@ -1,4 +1,6 @@
-﻿     Creating library C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Win32\Release\imageAFF4.lib and object C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Win32\Release\imageAFF4.exp
+﻿  Util.cc
+  xwaysPlugin.cc
+     Creating library C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Win32\Release\imageAFF4.lib and object C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Win32\Release\imageAFF4.exp
   Generating code
   Finished generating code
   xwaysPlugin.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Win32\Release\imageAFF4.dll

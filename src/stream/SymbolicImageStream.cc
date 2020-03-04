@@ -79,7 +79,7 @@ int64_t SymbolicImageStream::read(void *buf, uint64_t count, uint64_t offset) NO
 #if DEBUG
 	fprintf(aff4::getDebugOutput(), "%s[%d] : Reading  %" PRIx64 " : %" PRIx64 " \n", __FILE__, __LINE__, offset, count);
 #endif
-	::memset(buf, symbol, count);
+	::memset(buf, symbol, (size_t)count);
 #if DEBUG
 	fprintf(aff4::getDebugOutput(), "%s[%d] : Completed Read  %" PRIx64 " : %" PRIx64 " => %" PRIx64 " \n", __FILE__, __LINE__, offset, count, count);
 #endif

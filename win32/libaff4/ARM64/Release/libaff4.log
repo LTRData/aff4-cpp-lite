@@ -1,6 +1,4 @@
-﻿  AFF4Containers.cc
-  AFF4Map.cc
-  ZipStream.cc
+﻿  SymbolicImageStream.cc
      Creating library C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Release\libaff4.lib and object C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Release\libaff4.exp
   Generating code
   Finished generating code

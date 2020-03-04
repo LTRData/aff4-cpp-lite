@@ -1,9 +1,20 @@
-﻿  Skipping... (no relevant changes detected)
-  dllmain.cpp
-  Util.cc
+﻿  xwaysPlugin.cc
+xwaysPlugin.cc(73): error C2065: 'thread_local' : undeclared identifier
+xwaysPlugin.cc(73): error C2144: syntax error : 'int' should be preceded by ';'
+xwaysPlugin.cc(73): error C2146: syntax error : missing ';' before identifier 'rg'
+xwaysPlugin.cc(73): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+xwaysPlugin.cc(73): error C2377: 'std::mt19937' : redefinition; typedef cannot be overloaded with any other symbol
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\random(6460) : see declaration of 'std::mt19937'
+xwaysPlugin.cc(73): error C2065: 'rg' : undeclared identifier
+xwaysPlugin.cc(74): error C2065: 'thread_local' : undeclared identifier
+xwaysPlugin.cc(74): error C2144: syntax error : 'int' should be preceded by ';'
+xwaysPlugin.cc(74): error C2146: syntax error : missing ';' before identifier 'pick'
+xwaysPlugin.cc(74): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+xwaysPlugin.cc(74): error C2936: 'std::uniform_int_distribution<unsigned __int64>' : template-class-id redefined as a global data variable
+xwaysPlugin.cc(74): error C3861: 'pick': identifier not found
+xwaysPlugin.cc(81): error C2065: 'rg' : undeclared identifier
+xwaysPlugin.cc(81): error C3861: 'pick': identifier not found
   Generating Code...
   Compiling...
-  xwaysPlugin.cc
+  Util.cc
   Generating Code...
-     Creating library C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\x64\Debug\imageAFF4.lib and object C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\x64\Debug\imageAFF4.exp
-  xwaysPlugin.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\x64\Debug\imageAFF4.dll

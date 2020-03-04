@@ -1,5 +1,2 @@
-﻿  ZipStream.cc
-  AFF4Map.cc
-  AFF4Containers.cc
-  Generating Code...
+﻿  SymbolicImageStream.cc
   libaff4.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM\Debug\libaff4.dll

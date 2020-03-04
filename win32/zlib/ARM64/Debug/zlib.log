@@ -1,18 +1,1 @@
-﻿  adler32.c
-  compress.c
-  crc32.c
-  deflate.c
-  gzclose.c
-  gzlib.c
-  gzread.c
-  gzwrite.c
-  infback.c
-  inffast.c
-  inflate.c
-  inftrees.c
-  trees.c
-  uncompr.c
-  zutil.c
-  Generating Code...
-     Creating library C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Debug\zlib1.lib and object C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Debug\zlib1.exp
-  zlib.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Debug\zlib1.dll
+﻿  zlib.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\ARM64\Debug\zlib1.dll

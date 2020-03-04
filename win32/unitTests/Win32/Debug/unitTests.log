@@ -1,3 +1,12 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.Cpp.Common.props(27,6): warning MSB4211: The property "VCProjectUpgraderObjectName" is being set to a value for the first time, but it was already consumed at "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\VC\VCTargets\Microsoft.Cpp.Redirect.14.props (30,5)".
-  unitTests.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Win32\Debug\unitTests.dll
-  unitTests.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Win32\Debug\unitTests.pdb (Partial PDB)
+﻿  stdafx.cpp
+  version.cpp
+  TestUtilities.cc
+  streams.cc
+  resolver.cc
+  image.cc
+  container.cc
+  compression.cc
+  cacheTest.cc
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\tests\cachetest.cc(115): error C2220: warning treated as error - no 'object' file generated
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\tests\cachetest.cc(115): warning C4930: 'AFF4UnitTests::TestVersion::IntLoader loader2(void)': prototyped function not called (was a variable definition intended?)
+  Generating Code...

@@ -1,2 +1,20 @@
-﻿     Creating library C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Win32\Debug\imageAFF4.lib and object C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Win32\Debug\imageAFF4.exp
-  xwaysPlugin.vcxproj -> C:\Users\olof.OLOFDOM\Source\Repos\aff4\aff4-cpp-lite\win32\Win32\Debug\imageAFF4.dll
+﻿  xwaysPlugin.cc
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(73): error C2065: 'thread_local' : undeclared identifier
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(73): error C2144: syntax error : 'int' should be preceded by ';'
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(73): error C2146: syntax error : missing ';' before identifier 'rg'
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(73): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(73): error C2377: 'std::mt19937' : redefinition; typedef cannot be overloaded with any other symbol
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\random(6460) : see declaration of 'std::mt19937'
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(73): error C2065: 'rg' : undeclared identifier
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(74): error C2065: 'thread_local' : undeclared identifier
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(74): error C2144: syntax error : 'int' should be preceded by ';'
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(74): error C2146: syntax error : missing ';' before identifier 'pick'
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(74): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(74): error C2936: 'std::uniform_int_distribution<unsigned int>' : template-class-id redefined as a global data variable
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(74): error C3861: 'pick': identifier not found
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(81): error C2065: 'rg' : undeclared identifier
+c:\users\olof.olofdom\source\repos\aff4\aff4-cpp-lite\win32\xwaysplugin\xwaysplugin.cc(81): error C3861: 'pick': identifier not found
+  Generating Code...
+  Compiling...
+  Util.cc
+  Generating Code...
